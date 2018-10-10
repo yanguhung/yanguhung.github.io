@@ -8,20 +8,21 @@
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
   <title>（一）flask-sqlalchemy的安装和配置 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.  * 比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查     ![](https://img-blog.csdn.net/">
+  <meta name="description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.">
 <meta name="keywords" content="Flask">
 <meta property="og:type" content="article">
 <meta property="og:title" content="（一）flask-sqlalchemy的安装和配置">
 <meta property="og:url" content="https://yanguhung.github.io/2017/08/03/（一）flask-sqlalchemy的安装和配置/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.  * 比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查     ![](https://img-blog.csdn.net/">
+<meta property="og:description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-10-05T06:08:51.598Z">
+<meta property="og:updated_time" content="2018-10-10T14:07:19.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（一）flask-sqlalchemy的安装和配置">
-<meta name="twitter:description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.  * 比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查     ![](https://img-blog.csdn.net/">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM  ORM  全拼 Object-Relation Mapping . 称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -63,12 +64,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives">归档</a></li>
-	        
-				<li><a href="/categories">分类</a></li>
-	        
-				<li><a href="/tags">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,12 +121,6 @@
 			
 				
 			
-				
-			
-				
-			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -149,16 +138,10 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
-		        
-					<li style="width: 25%"><a href="/archives">归档</a></li>
-		        
-					<li style="width: 25%"><a href="/categories">分类</a></li>
-		        
-					<li style="width: 25%"><a href="/tags">标签</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -196,17 +179,20 @@
         <p>  <strong>在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型</strong></p>
 <h3 id="一-什么是ORM"><a href="#一-什么是ORM" class="headerlink" title="一.什么是ORM"></a>一.什么是ORM</h3><ul>
 <li><strong> <code>ORM</code> </strong> 全拼<strong> <code>Object-Relation Mapping</code> </strong>. 称为<strong> <code>对象-关系映射</code> </strong> </li>
-<li>主要实现模型对象到关系数据库数据的映射.</li>
+<li><p>主要实现模型对象到关系数据库数据的映射.</p>
+<a id="more"></a>
+<ul>
+<li><p>比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查</p>
+<p> <img src="https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<hr>
+</li>
 </ul>
-<pre><code>* 比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查
-
-   ![](https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-
-     ** **
-</code></pre><p> <strong>ORM图解 </strong></p>
-<p> <img src="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p> <strong>ORM的优缺点有哪些?</strong></p>
-<p> 优点 :</p>
+<p><strong>ORM图解 </strong></p>
+<p><img src="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><strong>ORM的优缺点有哪些?</strong></p>
+<p>优点 :</p>
+</li>
+</ul>
 <ul>
 <li>对数据库的操作都转化成对类,属性和方法的操作. </li>
 <li>不用编写各种数据库的 <code>sql语句</code> . </li>
@@ -490,11 +476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -61,12 +61,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/archives">归档</a></li>
-	        
-				<li><a href="/categories">分类</a></li>
-	        
-				<li><a href="/tags">标签</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -123,12 +117,6 @@
 			
 				
 			
-				
-			
-				
-			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -146,16 +134,10 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
-		        
-					<li style="width: 25%"><a href="/archives">归档</a></li>
-		        
-					<li style="width: 25%"><a href="/categories">分类</a></li>
-		        
-					<li style="width: 25%"><a href="/tags">标签</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -171,139 +153,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-请求钩子函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/05/请求钩子函数/">请求钩子</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/05/请求钩子函数/" class="archive-article-date">
-  	<time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="请求钩子"><a href="#请求钩子" class="headerlink" title="请求钩子"></a>请求钩子</h1><ol>
-<li><p>在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：</p>
-<ul>
-<li>在请求开始时，建立数据库连接；</li>
-<li>在请求开始时，根据需求进行权限校验；</li>
-<li><p>在请求结束时，指定数据的交互格式；</p>
-<blockquote>
-<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：</p>
-<ul>
-<li>before_first_request:在处理第一个请求前执行</li>
-<li>before_request:在每次请求前执行,在该装饰函数中,一旦return,视图函数不再执行</li>
-<li><p>after_request:如果没有抛出错误，在每次请求后执行</p>
-<ul>
-<li>接受一个参数：视图函数作出的响应</li>
-<li>在此函数中可以对响应值,在返回之前做最后一步处理,再返回</li>
-</ul>
-</li>
-<li><p>teardown_request：在每次请求后执行</p>
-<ul>
-<li>接受一个参数:用来接收错误信息</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码测试</p>
-</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> abort</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在第一次请求之前调用，可以在此方法内部做一些初始化操作</span></span><br><span class="line"><span class="meta">@app.before_first_request</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_first_request</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"before_first_request"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在每次请求之前调用，这时候已经有请求了，可能在这个方法里面做请求的校验</span></span><br><span class="line"><span class="comment"># 如果请求的校验不成功，可以直接在此方法中进行响应，直接return之后那么就不会执行视图函数</span></span><br><span class="line"><span class="meta">@app.before_request</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_request</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"before_request"</span>)</span><br><span class="line">    <span class="comment"># if 请求不符合条件:</span></span><br><span class="line">    <span class="comment">#     return "laowang"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在执行完视图函数之后会调用，并且会把视图函数所生成的响应传入,可以在此方法中对响应做最后一步统一的处理</span></span><br><span class="line"><span class="meta">@app.after_request</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">after_request</span><span class="params">(response)</span>:</span></span><br><span class="line">    print(<span class="string">"after_request"</span>)</span><br><span class="line">    response.headers[<span class="string">"Content-Type"</span>] = <span class="string">"application/json"</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请每一次请求之后都会调用，会接受一个参数，参数是服务器出现的错误信息</span></span><br><span class="line"><span class="meta">@app.teardown_request</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">teardown_request</span><span class="params">(e)</span>:</span></span><br><span class="line">    print(<span class="string">"teardown_request"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'index'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<p>在第1次请求时的打印：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">before_first_request</span><br><span class="line">before_request</span><br><span class="line">after_request</span><br><span class="line">teardown_request</span><br></pre></td></tr></table></figure>
-<p>在第2,3,..n次请求时的打印：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">before_request</span><br><span class="line">after_request</span><br><span class="line">teardown_request</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">请求钩子</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flask框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Flask//" class="article-tag-list-link color1">Flask</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/05/请求钩子函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-（二）flask-sqlalchemy基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -326,45 +175,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="对数据库基本操作"><a href="#对数据库基本操作" class="headerlink" title="对数据库基本操作"></a>对数据库基本操作</h1><ul>
-<li>在Flask-SQLAlchemy中，插入、修改、删除操作，均由数据库会话管理。</li>
+<li><p>在Flask-SQLAlchemy中，插入、修改、删除操作，均由数据库会话管理。</p>
+<ul>
+<li>会话用 db.session 表示。在准备把数据写入数据库前，要先将数据添加到会话中然后调用 db.session.commit() 方法提交会话。  </li>
 </ul>
-<pre><code>* 会话用 db.session 表示。在准备把数据写入数据库前，要先将数据添加到会话中然后调用 db.session.commit() 方法提交会话。  
-</code></pre><ul>
-<li>在 Flask-SQLAlchemy 中，查询操作是通过 query 对象操作数据。</li>
-</ul>
-<pre><code>* 最基本的查询是返回表中所有数据，可以通过过滤器进行更精确的数据库查询。  
-</code></pre><h2 id="一、定义模型类"><a href="#一、定义模型类" class="headerlink" title="一、定义模型类"></a>一、定义模型类</h2><p> 表关系为一对多</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置连接数据库的URL</span></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>] = <span class="string">'mysql://root:123456@127.0.0.1:3306/test'</span></span><br><span class="line"><span class="comment">#设置数据库追踪信息,压制警告</span></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>] = <span class="keyword">True</span></span><br><span class="line"><span class="comment">#创建SQLAlchemy对象,读取app中配置信息</span></span><br><span class="line">db = SQLAlchemy(app)</span><br><span class="line"><span class="comment">#定义角色模型(一方) 模型类必须继承db.Model</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Role</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    <span class="comment"># 定义表名，不写此段表名默认为类名小写</span></span><br><span class="line">    __tablename__ = <span class="string">'roles'</span></span><br><span class="line">    <span class="comment"># 定义列对象，即sql中字段</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="keyword">True</span>)</span><br><span class="line">    name = db.Column(db.String(<span class="number">64</span>), unique=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment">#设置关系属性,方便查询使用</span></span><br><span class="line">    us = db.relationship(<span class="string">'User'</span>, backref=<span class="string">'role'</span>)</span><br><span class="line">    <span class="comment">#重写__repr__方法,方便查看对象输出内容</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Role:%s'</span>% self.name</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义用户模型类(多方)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">'users'</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="keyword">True</span>)</span><br><span class="line">    name = db.Column(db.String(<span class="number">64</span>), unique=<span class="keyword">True</span>, index=<span class="keyword">True</span>)</span><br><span class="line">    email = db.Column(db.String(<span class="number">64</span>),unique=<span class="keyword">True</span>)</span><br><span class="line">    password = db.Column(db.String(<span class="number">64</span>))</span><br><span class="line">    <span class="comment"># 外键的定义</span></span><br><span class="line">    role_id = db.Column(db.Integer, db.ForeignKey(<span class="string">'roles.id'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'User:%s'</span>%self.name</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#删除所有和db相关联的表</span></span><br><span class="line">    db.drop_all()</span><br><span class="line">    <span class="comment">#创建所有和db相关联的表</span></span><br><span class="line">    db.create_all()</span><br><span class="line">    app.run(debug=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="二、关键代码格式-说明"><a href="#二、关键代码格式-说明" class="headerlink" title="二、关键代码格式,说明"></a>二、关键代码格式,说明</h3><ul>
-<li>一对多关系 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Role</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">#关键代码</span></span><br><span class="line">    us = db.relationship(<span class="string">'User'</span>, backref=<span class="string">'role'</span>, lazy=<span class="string">'dynamic'</span>)</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    role_id = db.Column(db.Integer, db.ForeignKey(<span class="string">'roles.id'</span>))</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li>其中realtionship描述了Role和User的关系。</li>
-<li>第一个参数为对应参照的类”User”</li>
-<li>第二个参数backref为类User,反向引用属性</li>
-<li>第三个参数lazy决定了什么时候SQLALchemy从数据库中加载数据</li>
-<li>如果设置为子查询方式(subquery)，则会在加载完Role对象后，就立即加载与其关联的对象，这样会让总查询数量减少，但如果返回的条目数量很多，就会比较慢 </li>
-<li>设置为 subquery 的话，role.users 返回所有数据列表  </li>
-<li>另外,也可以设置为动态方式(dynamic)，这样关联对象会在被使用的时候再进行加载，并且在返回前进行过滤，如果返回的对象数很多，或者未来会变得很多，那最好采用这种方式</li>
-</ul>
-<h3 id="三、常见的操作语句"><a href="#三、常见的操作语句" class="headerlink" title="三、常见的操作语句"></a>三、常见的操作语句</h3><blockquote>
-<ul>
-<li>db.session.add(obj) 添加对象 </li>
-<li>db.session.add_all([obj1,obj2,..]) 添加多个对象 </li>
-<li>db.session.delete(obj) 删除对象 </li>
-<li>db.session.commit() 提交会话 </li>
-<li>db.session.rollback() 回滚 </li>
-<li>db.session.remove() 移除会话 </li>
-</ul>
-</blockquote>
-<h3 id="四、常用的SQLAlchemy查询过滤器"><a href="#四、常用的SQLAlchemy查询过滤器" class="headerlink" title="四、常用的SQLAlchemy查询过滤器"></a>四、常用的SQLAlchemy查询过滤器</h3><ul>
-<li>用来过滤数据,返回查询的结果集<br> 过滤器         | 说明<br> ———– | ————————<br> filter()    | 把过滤器添加到原查询上，返回一个新查询<br> filter_by() | 把等值过滤器添加到原查询上，返回一个新查询<br> limit       | 使用指定的值限定原查询返回的结果<br> offset()    | 偏移原查询返回的结果，返回一个新查询<br> order_by()  | 根据指定条件对原查询结果进行排序，返回一个新查询<br> group_by()  | 根据指定条件对原查询结果进行分组，返回一个新查询</li>
-</ul>
-<h3 id="五、常用的SQLAlchemy查询执行器"><a href="#五、常用的SQLAlchemy查询执行器" class="headerlink" title="五、常用的SQLAlchemy查询执行器"></a>五、常用的SQLAlchemy查询执行器</h3><ul>
-<li>用来执行结果集,得到具体数据<br> 方法             | 说明<br> ————– | ————————–<br> all()          | 以列表形式返回查询的所有结果<br> first()        | 返回查询的第一个结果，如果未查到，返回None<br> first_or_404() | 返回查询的第一个结果，如果未查到，返回404<br> get()          | 返回指定主键对应的行，如不存在，返回None<br> get_or_404()   | 返回指定主键对应的行，如不存在，返回404<br> count()        | 返回查询结果的数量<br> paginate()     | 返回一个Paginate对象，它包含指定范围内的结果</li>
-</ul>
-<h3 id="六、完整操作"><a href="#六、完整操作" class="headerlink" title="六、完整操作"></a>六、完整操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment">#配置信息</span></span><br><span class="line">app.config[<span class="string">"SQLALCHEMY_DATABASE_URI"</span>] = <span class="string">"mysql+pymysql://root:123456@127.0.0.1:3306/test"</span></span><br><span class="line"><span class="comment">#设置压制警告信息,如果True会追踪数据库变化,会增加显著开销,所以建议设置为False</span></span><br><span class="line">app.config[<span class="string">"SQLALCHEMY_TRACK_MODIFICATIONS"</span>] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#创建SQLAlchemy类对象,关联app</span></span><br><span class="line">db = SQLAlchemy(app)</span><br><span class="line"></span><br><span class="line"><span class="comment">#编写模型类,继承db.Model</span></span><br><span class="line"><span class="comment">#角色,用户之间的关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Role</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">"roles"</span> <span class="comment">#指定表名称</span></span><br><span class="line">    <span class="comment">#参数1:表示整数类型,  参数2:表示主键</span></span><br><span class="line">    id = db.Column(db.Integer,primary_key=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment">#角色名唯一的</span></span><br><span class="line">    name = db.Column(db.String(<span class="number">64</span>),unique=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#需要设置关系属性relationship(不会产生字段),设置在一方</span></span><br><span class="line">    <span class="comment">#给Role添加了users关系属性, 查询格式: role.users</span></span><br><span class="line">    <span class="comment">#给User添加了role关系属性(反向引用),查询格式: user.role</span></span><br><span class="line">    users = db.relationship(<span class="string">'User'</span>,backref=<span class="string">'role'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#为了方便的看到对象输出的内容__repr__, 如果是普通类__str__</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;Role:%s&gt;"</span>%self.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户(多方)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">"users"</span>  <span class="comment"># 指定表名称</span></span><br><span class="line">    <span class="comment">#参数1:表示整数类型,  参数2:表示主键</span></span><br><span class="line">    id = db.Column(db.Integer,primary_key=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment">#用户名唯一的</span></span><br><span class="line">    name = db.Column(db.String(<span class="number">64</span>),unique=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment">#邮箱密码</span></span><br><span class="line">    email = db.Column(db.String(<span class="number">64</span>),unique=<span class="keyword">True</span>)</span><br><span class="line">    password = db.Column(db.String(<span class="number">64</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#外键</span></span><br><span class="line">    role_id = db.Column(db.Integer,db.ForeignKey(Role.id))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#为了方便的看到对象输出的内容__repr__, 如果是普通类__str__</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;User:%s,%s,%s,%s&gt;"</span>%(self.id,self.name,self.email,self.password)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">#为了演示方便,先删除数据库表,和模型类关联的表</span></span><br><span class="line">    db.drop_all()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建表,所有继承自dbModel的表</span></span><br><span class="line">    db.create_all()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建测试数据</span></span><br><span class="line">    ro1 = Role(name=<span class="string">'admin'</span>)</span><br><span class="line">    db.session.add(ro1)</span><br><span class="line">    db.session.commit()</span><br><span class="line">    <span class="comment"># 再次插入一条数据</span></span><br><span class="line">    ro2 = Role(name=<span class="string">'user'</span>)</span><br><span class="line">    db.session.add(ro2)</span><br><span class="line">    db.session.commit()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#多条用户数据</span></span><br><span class="line">    us1 = User(name=<span class="string">'wang'</span>, email=<span class="string">'wang@163.com'</span>, password=<span class="string">'123456'</span>, role_id=ro1.id)</span><br><span class="line">    us2 = User(name=<span class="string">'zhang'</span>, email=<span class="string">'zhang@189.com'</span>, password=<span class="string">'201512'</span>, role_id=ro2.id)</span><br><span class="line">    us3 = User(name=<span class="string">'chen'</span>, email=<span class="string">'chen@126.com'</span>, password=<span class="string">'987654'</span>, role_id=ro2.id)</span><br><span class="line">    us4 = User(name=<span class="string">'zhou'</span>, email=<span class="string">'zhou@163.com'</span>, password=<span class="string">'456789'</span>, role_id=ro1.id)</span><br><span class="line">    us5 = User(name=<span class="string">'tang'</span>, email=<span class="string">'tang@qq.com'</span>, password=<span class="string">'158104'</span>, role_id=ro2.id)</span><br><span class="line">    us6 = User(name=<span class="string">'wu'</span>, email=<span class="string">'wu@gmail.com'</span>, password=<span class="string">'5623514'</span>, role_id=ro2.id)</span><br><span class="line">    us7 = User(name=<span class="string">'qian'</span>, email=<span class="string">'qian@gmail.com'</span>, password=<span class="string">'1543567'</span>, role_id=ro1.id)</span><br><span class="line">    us8 = User(name=<span class="string">'liu'</span>, email=<span class="string">'liu@icloud.com'</span>, password=<span class="string">'867322'</span>, role_id=ro1.id)</span><br><span class="line">    us9 = User(name=<span class="string">'li'</span>, email=<span class="string">'li@163.com'</span>, password=<span class="string">'4526342'</span>, role_id=ro2.id)</span><br><span class="line">    us10 = User(name=<span class="string">'sun'</span>, email=<span class="string">'sun@163.com'</span>, password=<span class="string">'235523'</span>, role_id=ro2.id)</span><br><span class="line">    db.session.add_all([us1, us2, us3, us4, us5, us6, us7, us8, us9, us10])</span><br><span class="line">    db.session.commit()</span><br><span class="line"></span><br><span class="line">    app.run(debug=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<li><p>在 Flask-SQLAlchemy 中，查询操作是通过 query 对象操作数据。</p>
+        
+          <a class="article-more-a" href="/2018/08/05/（二）flask-sqlalchemy基本操作/#more">more >></a>
+        
       
 
       
@@ -440,54 +259,10 @@
         <p>  <strong>在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型</strong></p>
 <h3 id="一-什么是ORM"><a href="#一-什么是ORM" class="headerlink" title="一.什么是ORM"></a>一.什么是ORM</h3><ul>
 <li><strong> <code>ORM</code> </strong> 全拼<strong> <code>Object-Relation Mapping</code> </strong>. 称为<strong> <code>对象-关系映射</code> </strong> </li>
-<li>主要实现模型对象到关系数据库数据的映射.</li>
-</ul>
-<pre><code>* 比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查
-
-   ![](https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-
-     ** **
-</code></pre><p> <strong>ORM图解 </strong></p>
-<p> <img src="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p> <strong>ORM的优缺点有哪些?</strong></p>
-<p> 优点 :</p>
-<ul>
-<li>对数据库的操作都转化成对类,属性和方法的操作. </li>
-<li>不用编写各种数据库的 <code>sql语句</code> . </li>
-<li>不在关注,使用的是 <code>mysql</code> 、 <code>oracle</code> …等数据库 缺点 :</li>
-</ul>
-<ul>
-<li>相比较直接使用SQL语句操作数据库,有性能损失. <h3 id="二、flask-sqlalchemy"><a href="#二、flask-sqlalchemy" class="headerlink" title="二、flask-sqlalchemy"></a><strong>二、flask-sqlalchemy</strong></h3></li>
-</ul>
-<ul>
-<li>SQLALchemy 实际上是对数据库的抽象，让开发者不用直接和 SQL 语句打交道，而是通过 Python 对象来操作数据库，在舍弃一些性能开销的同时，换来的是开发效率的较大提升 </li>
-<li>SQLAlchemy是一个关系型数据库框架，它提供了高层的 ORM 和底层的原生数据库的操作。flask-sqlalchemy 是一个简化了 SQLAlchemy 操作的flask扩展。 </li>
-<li>文档地址：<a href="http://docs.jinkan.org/docs/flask-sqlalchemy" target="_blank" rel="noopener">http://docs.jinkan.org/docs/flask-sqlalchemy</a> <strong>1. 安装</strong></li>
-</ul>
-<ul>
-<li>使用pip工具安装 flask-sqlalchemy <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-sqlalchemy</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>如果连接的是 mysql 数据库，需要安装 mysqldb <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-mysqldb</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>提示:如果flask-mysqldb安装不上,安装, pip install pymysql </p>
-<p> <strong>2. 数据库连接设置</strong></p>
-</blockquote>
-<ul>
-<li>设置数据库的链接地址,追踪信息 </li>
-<li>格式:mysql://&lt;用户名&gt;:&lt;密码&gt;@:&lt;端口&gt;/数据库名称 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> # 数据库链接地址</span><br><span class="line">app.config[&apos;SQLALCHEMY_DATABASE_URI&apos;] = &apos;mysql://root:123456@127.0.0.1:3306/test&apos;</span><br><span class="line"># 动态追踪修改设置，如未设置只会提示警告</span><br><span class="line">app.config[&apos;SQLALCHEMY_TRACK_MODIFICATIONS&apos;] = True</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>查看映射的sql语句,设置: app.config[‘SQLALCHEMY_ECHO’] = True</p>
-</blockquote>
-<ul>
-<li>配置完成需要去 MySQL 中创建项目所使用的数据库，注意数据库字符格式utf8 </li>
-</ul>
-
+<li><p>主要实现模型对象到关系数据库数据的映射.</p>
+        
+          <a class="article-more-a" href="/2017/08/03/（一）flask-sqlalchemy的安装和配置/#more">more >></a>
+        
       
 
       
@@ -1779,6 +1554,112 @@
 
 
   
+    <article id="post-请求钩子函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/请求钩子函数/">请求钩子</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/05/请求钩子函数/" class="archive-article-date">
+  	<time datetime="2017-06-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="请求钩子"><a href="#请求钩子" class="headerlink" title="请求钩子"></a>请求钩子</h1><ol>
+<li><p>在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：</p>
+<ul>
+<li>在请求开始时，建立数据库连接；</li>
+<li>在请求开始时，根据需求进行权限校验；</li>
+<li><p>在请求结束时，指定数据的交互格式；</p>
+<blockquote>
+<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。</p>
+        
+          <a class="article-more-a" href="/2017/06/05/请求钩子函数/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">请求钩子</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flask框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Flask//" class="article-tag-list-link color1">Flask</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/05/请求钩子函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1882,11 +1763,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1894,11 +1775,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
