@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>404 | UH的博客</title>
+  <title>文件和目录操作 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杨宇航的博客">
-<meta name="keywords" content="Python, web后端, Flask, Django, 服务器, Mysql, redis">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://yanguhung.github.io/404/index.html">
+  <meta name="description" content="一、文件操作 文件打开和关闭   在python中, 使用 open 函数, 可以打开一个已经存在的文件, 或者创建一个新文件.  12 # 打开文件f = open(&apos;test.txt&apos;, &apos;w&apos;)">
+<meta name="keywords" content="Python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件和目录操作">
+<meta property="og:url" content="https://yanguhung.github.io/2017/04/13/Python基础/1. 文件和目录操作/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="杨宇航的博客">
+<meta property="og:description" content="一、文件操作 文件打开和关闭   在python中, 使用 open 函数, 可以打开一个已经存在的文件, 或者创建一个新文件.  12 # 打开文件f = open(&apos;test.txt&apos;, &apos;w&apos;)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T13:18:20.511Z">
+<meta property="og:updated_time" content="2018-10-10T17:18:52.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description" content="杨宇航的博客">
+<meta name="twitter:title" content="文件和目录操作">
+<meta name="twitter:description" content="一、文件操作 文件打开和关闭   在python中, 使用 open 函数, 可以打开一个已经存在的文件, 或者创建一个新文件.  12 # 打开文件f = open(&apos;test.txt&apos;, &apos;w&apos;)">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -153,27 +153,147 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Python基础/1. 文件和目录操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      文件和目录操作
     </h1>
   
 
         
-        <a href="/404/index.html" class="archive-article-date">
-  	<time datetime="2018-10-10T13:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+        <a href="/2017/04/13/Python基础/1. 文件和目录操作/" class="archive-article-date">
+  	<time datetime="2017-04-13T10:26:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><ol>
+<li>文件打开和关闭</li>
+</ol>
+<ul>
+<li>在python中, 使用 open 函数, 可以打开一个已经存在的文件, 或者创建一个新文件.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 打开文件</span></span><br><span class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><p>open 函数调用完毕之后, 返回一个标识该打开文件的对象. 以后对该对象的操作, 就是对该文件的操作.</p>
+</li>
+<li><p>文件路径</p>
+<ul>
+<li>如果只写了文件名, 默认会在当前目录下搜索要打开的文件. 如果找不到, 就会报错. </li>
+<li><p>也可以编写完成的路径, 例如, /Users/edwardmeng/Desktop/hello.txt. 在 Windows 操作系统中注意路径编写, 如果写的是正斜杠, 用一个隔开路径. 如果写的是反斜杠, 需要两个反斜杠来隔开路径. 例如:</p>
+</li>
+<li><p>反斜杠2个<br>C:\Users\Edward Meng\Desktop\hello.txt</p>
+</li>
+<li>正斜杠1个<br>C:/Users/Edward Meng/Desktop/hello.txt</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>打开模式</li>
+</ol>
+<ul>
+<li><p>open 函数的第二个参数, 指的是文件的打开模式</p>
+<ul>
+<li>二进制模式和文本模式 </li>
+<li>读模式、写模式、追加模式、读写模式等等 </li>
+</ul>
+</li>
+<li><p>文件打开都有哪些模式?</p>
+</li>
+</ul>
+<pre><code>访问模式 | 说明                                                                               
+---- | --------------------------------------------------------------------------------- 
+r    | 以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。                                                 
+w    | 打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。                                        
+a    | 打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。      
+rb   | 以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。                                           
+wb   | 以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。                                  
+ab   | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
+r+   | 打开一个文件用于读写. 文件指针将会放在文件的开头.                                                       
+w+   | 打开一个文件用于读写. 如果该文件已存在则将其覆盖. 如果该文件不存在，创建新文件.                                       
+a+   | 打开一个文件用于读写. 如果该文件已存在, 文件指针将会放在文件的结尾. 文件打开时会是追加模式. 如果该文件不存在, 创建新文件用于读写.           
+rb+  | 以二进制格式打开一个文件用于读写. 文件指针将会放在文件的开头.                                                 
+wb+  | 以二进制格式打开一个文件用于读写. 如果该文件已存在则将其覆盖. 如果该文件不存在, 创建新文件.                                
+ab+  | 以二进制格式打开一个文件用于追加. 如果该文件已存在, 文件指针将会放在文件的结尾. 如果该文件不存在, 创建新文件用于读写.                  
+</code></pre><ul>
+<li>文件数据在磁盘上都是以二进制的方式存储的, 为什么打开文件又分了二进制模式和文本模式?</li>
+</ul>
+<p>我们先了解一个知识, 大多数文件中的数据都是一行一行的. 那么如何区分一行是否结束? 在每一行的结束位置, 会有一个不可见的换行符. 这个换行符在不同的操作系统下, 是不一样的, 例如:</p>
+<ol>
+<li>对于 Windows 操作系统, 换行符为 \r\n </li>
+<li>对于 Mac 操作系统, 换行符为 \r </li>
+<li>对于 Linux 操作系统, 换行符则为 \n 而在程序中, 和平台无关, 默认是 \n, 这就设计到一个问题.</li>
+</ol>
+<p>例如, 我有文本信息 “我是中国人\n”, 当这条信息写入文件中时, ‘\n’ 是否需要转换成当前操作系统的换行符?</p>
+<p>对于这个普通文本的信息, 我们希望进行转换, 所以我们就可以选择用文本模式来操作文件, 文本模式会自动将程序中的 \n 转换成对应操作系统的换行符:</p>
+<ol>
+<li>如果在 Windows 上, 会转换为 \r\n </li>
+<li>如果在 Mac 上, 会转换为 \r </li>
+<li>如果在 Linux 上, 不会进行转换 当读取对应操作系统上的文件内容时, 会将 \r\n 或者 \r 转换为 \n.</li>
+</ol>
+<p>不是所有的文件都需要进行换行符转换, 针对不需要进行换行符转换的文件, 我们就可以使用二进制模式打开文件. 数据原来是什么样, 写到文件中也是什么样, 不会进行任何转换. 磁盘中的文件是什么样, 读取到程序中保持原有的样子, 不进行任何的转换.</p>
+<ul>
+<li>文件关闭<ul>
+<li>open 函数执行完毕之后, 会返回一个用于标识该文件的文件对象, 该对象有一个 close 方法, 调用该方法可关闭打开的文件, 释放占用的文件资源.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意: 即使我们不关闭文件, Python 也会在某个时机下自动关闭文件, 释放文件资源. 但这并不意味着我们不需要调用 close 方法手动关闭文件, 通过 close 方法手动调用我们可以在不用时及时关闭文件, 释放文件资源. 文件使用完毕之后, 马上调用 close 方法是一个非常好的编程习惯.</p>
+</blockquote>
+<h3 id="1-2-文件读写"><a href="#1-2-文件读写" class="headerlink" title="1.2 文件读写"></a>1.2 文件读写</h3><ul>
+<li>读取文件内容, 可以使用:</li>
+</ul>
+<blockquote>
+<p>read 方法, 默认读取全部文件数据, 设置参数, 可读取指定个数文字.<br>readline 方法, 一次读取一行数据.<br>readlines 方法, 一次读取所有数据, 并且返回列表, 列表中每一个元素就是一行数据.</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> f = open(<span class="string">'a.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一次读取10个数据长度</span></span><br><span class="line">content = f.read(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 一次读取一行</span></span><br><span class="line">line = f.readline()</span><br><span class="line"><span class="comment"># 一次读取所有的行</span></span><br><span class="line">lines = f.readlines()</span><br><span class="line">print(lines, end=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>向文件中写入内容, 可以使用 write 方法.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'a.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">f.write(<span class="string">'hello world!'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-文件拷贝"><a href="#1-3-文件拷贝" class="headerlink" title="1.3 文件拷贝"></a>1.3 文件拷贝</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 获得要拷贝的文件名</span></span><br><span class="line">old_file_name = input(<span class="string">'请输入一个文件名:'</span>)</span><br><span class="line"><span class="comment"># 获取文件的名字和后缀</span></span><br><span class="line">point_position = old_file_name.rfind(<span class="string">'.'</span>)</span><br><span class="line"><span class="keyword">if</span> point_position &gt; <span class="number">0</span>:</span><br><span class="line">    suffix = old_file_name[point_position+<span class="number">1</span>:]</span><br><span class="line">    <span class="comment"># 拼接新的文件名</span></span><br><span class="line">    new_file_name = old_file_name[:point_position] + <span class="string">'[附件].'</span> + suffix</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    new_file_name = old_file_name + <span class="string">'[附件]'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 以读的方式打开旧文件</span></span><br><span class="line">old_file = open(old_file_name, <span class="string">'rb'</span>)</span><br><span class="line"><span class="comment"># 以写的方式打开新文件</span></span><br><span class="line">new_file = open(new_file_name, <span class="string">'wb'</span>)</span><br><span class="line"></span><br><span class="line">new_file.writelines(old_file.readlines())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭两个文件</span></span><br><span class="line">old_file.close()</span><br><span class="line">new_file.close()</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-总结"><a href="#1-4-总结" class="headerlink" title="1.4 总结"></a>1.4 总结</h3><blockquote>
+<ol>
+<li>文件的作用是用来存储数据. </li>
+<li>文件常见的打开模式有r、w、a、rb、wb、ab等. </li>
+<li>文本模式会在操作系统文件和程序之间进行换行符转换, 二进制模式则不会进行换行符转换. </li>
+<li>不同的操作系统换行符是不一样的: 4.1 Windows 的换行符为 \r\n 4.2 Mac 换行符为 \r 4.3 Linux 的换行符为 \n 4.4 程序中的换行符为 \n </li>
+<li>open 函数用于打开一个文件, 并返回一个用于标识来物理文件的对象. </li>
+<li>文件对象的 close 方法用于关闭文件, 及时释放占用的文件资源. </li>
+<li>文件对象的 read 方法用于从文件中读取所有数据或者读取指定个数的文字. </li>
+<li>文件对象的 readline 方法用于从文件中读取一样数据. </li>
+<li>文件对象的 readlines 方法用于从文件中读取所有内容, 并将将内容存储到列表中, 每一个列表元素为一行数据. </li>
+<li>文件对象的 write 方法, 用于向文件中写入数据. </li>
+</ol>
+</blockquote>
+<h2 id="2-目录操作"><a href="#2-目录操作" class="headerlink" title="2 .目录操作"></a>2 .目录操作</h2><hr>
+<h3 id="2-1-文件重命名"><a href="#2-1-文件重命名" class="headerlink" title="2.1 文件重命名"></a>2.1 文件重命名</h3><ul>
+<li>os 模块中的 rename() 可以完成对文件的重命名操作.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.rename(<span class="string">'11[附件].html'</span>, <span class="string">'index.html'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-文件删除"><a href="#2-2-文件删除" class="headerlink" title="2.2 文件删除"></a>2.2 文件删除</h3>  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.remove(<span class="string">'index.html'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-创建和删除目录"><a href="#2-3-创建和删除目录" class="headerlink" title="2.3 创建和删除目录"></a>2.3 创建和删除目录</h3>  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">os.mkdir(<span class="string">'abc'</span>)</span><br><span class="line"><span class="comment"># 删除目录</span></span><br><span class="line">os.rmdir(<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-获取和修改当前工作目录"><a href="#2-4-获取和修改当前工作目录" class="headerlink" title="2.4 获取和修改当前工作目录"></a>2.4 获取和修改当前工作目录</h3>  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获得当前工作目录</span></span><br><span class="line">cwd = os.getcwd()</span><br><span class="line">print(cwd)</span><br><span class="line"><span class="comment"># 改变当前工作目录</span></span><br><span class="line">os.chdir(<span class="string">'/Users/edwardmeng/Desktop'</span>)</span><br><span class="line"><span class="comment"># 创建文件</span></span><br><span class="line">os.mkdir(<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-获得指定目录下的文件列表"><a href="#2-5-获得指定目录下的文件列表" class="headerlink" title="2.5 获得指定目录下的文件列表"></a>2.5 获得指定目录下的文件列表</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">file_list = os.listdir()</span><br><span class="line">print(file_list)</span><br><span class="line"></span><br><span class="line">file_list = os.listdir(<span class="string">'/Users/edwardmeng/Desktop'</span>)</span><br><span class="line">print(file_list)</span><br></pre></td></tr></table></figure>
+<h3 id="2-6-批量修改文件名"><a href="#2-6-批量修改文件名" class="headerlink" title="2.6 批量修改文件名"></a>2.6 批量修改文件名</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 批量产生一些文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_files</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""创建测试文件"""</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.1 创建目录</span></span><br><span class="line">    os.mkdir(<span class="string">'files'</span>)</span><br><span class="line">    <span class="comment"># 1.2 将工作目录切换到 files 目录中</span></span><br><span class="line">    os.chdir(<span class="string">'./files'</span>)</span><br><span class="line">    <span class="comment"># 1.3 在 files 目录中创建 20 个文件名为 文件1、文件2...</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="number">20</span>:</span><br><span class="line">        file = open(<span class="string">'file'</span> + str(i), <span class="string">'w'</span>)</span><br><span class="line">        file.write(<span class="string">'远看天上一火链, 原是玉皇要抽烟, 如果玉皇不抽烟, 为何又是一火链!'</span>)</span><br><span class="line">        file.close()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 批量将文件名修改为 [itcast.cn]-file1.txt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_file_names</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取文件列表</span></span><br><span class="line">    files_list = os.listdir()</span><br><span class="line">    <span class="comment"># 遍历文件名</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> files_list:</span><br><span class="line">        os.rename(name, <span class="string">'[itcast]'</span> + name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create_files()</span><br><span class="line">change_file_names()</span><br></pre></td></tr></table></figure>
+<h3 id="2-7-总结"><a href="#2-7-总结" class="headerlink" title="2.7 总结"></a>2.7 总结</h3><ol>
+<li>os.rename 方法可修改一个文件的名字. </li>
+<li>os.remove 方法可删除一个存在的文件. </li>
+<li>os.mkdir 方法可创建一个目录. </li>
+<li>os.rmdir 方法可删除一个目录. </li>
+<li>os.getcwd 方法可获得当前工作目录. </li>
+<li>os.chdir 方法可修改当前的工作目录. </li>
+<li>os.listdir 方法获得指定目录下的文件列表. </li>
+</ol>
+
       
 
       
@@ -202,6 +322,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -252,7 +383,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/04/13/Python基础/1. 文件和目录操作/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,6 +395,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/10/11/MySQL/2. MySQL的进阶操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/10/Pyhton高级/3. 迭代器和生成器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python中生成器generator和迭代器Iterator的使用方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -319,7 +469,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

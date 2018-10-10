@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>404 | UH的博客</title>
+  <title>Python中的实例方法、classmethod和staticmethod的区别 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杨宇航的博客">
-<meta name="keywords" content="Python, web后端, Flask, Django, 服务器, Mysql, redis">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://yanguhung.github.io/404/index.html">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829class NewsPaper(object):# 类属性__print_times = 0 # 下划线表示私有属性# 实例方法def __init__(self, title, content):    self.title = title  # 实例属性    self.content = con">
+<meta name="keywords" content="Python高级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python中的实例方法、classmethod和staticmethod的区别">
+<meta property="og:url" content="https://yanguhung.github.io/2017/03/07/Pyhton高级/4. classmethod和staticmethod总结/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="杨宇航的博客">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829class NewsPaper(object):# 类属性__print_times = 0 # 下划线表示私有属性# 实例方法def __init__(self, title, content):    self.title = title  # 实例属性    self.content = con">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T13:18:20.511Z">
+<meta property="og:updated_time" content="2018-10-10T17:18:44.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description" content="杨宇航的博客">
+<meta name="twitter:title" content="Python中的实例方法、classmethod和staticmethod的区别">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829class NewsPaper(object):# 类属性__print_times = 0 # 下划线表示私有属性# 实例方法def __init__(self, title, content):    self.title = title  # 实例属性    self.content = con">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -153,27 +153,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Pyhton高级/4. classmethod和staticmethod总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      Python中的实例方法、classmethod和staticmethod的区别
     </h1>
   
 
         
-        <a href="/404/index.html" class="archive-article-date">
-  	<time datetime="2018-10-10T13:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+        <a href="/2017/03/07/Pyhton高级/4. classmethod和staticmethod总结/" class="archive-article-date">
+  	<time datetime="2017-03-07T09:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsPaper</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 类属性</span></span><br><span class="line">__print_times = <span class="number">0</span> <span class="comment"># 下划线表示私有属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, title, content)</span>:</span></span><br><span class="line">    self.title = title  <span class="comment"># 实例属性</span></span><br><span class="line">    self.content = content  <span class="comment"># 实例属性</span></span><br><span class="line">    <span class="comment"># 累加类属性变量</span></span><br><span class="line">    NewsPaper.__print_times += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_news</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">"报纸标题:%s"</span> % self.title)</span><br><span class="line">    print(<span class="string">"报纸内容:%s"</span> % self.content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 类方法(封装类属性,外界提供访问接口，保护类属性)</span></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_times</span><span class="params">(cls)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> cls.__print_times</span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 静态方法(可通过类名访问类属性)</span></span><br><span class="line">    <span class="comment"># 静态方法不可访问实例属性</span></span><br><span class="line">    print(NewsPaper.__print_times)</span><br><span class="line">    print(<span class="string">"我是静态方法!"</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>1. 实例属性和实例方法</strong></p>
+<ul>
+<li>在类中使用<strong>init</strong>初始化的属性叫做叫做实例属性</li>
+<li>使用def定义的函数叫做实例方法</li>
+</ul>
+<p><strong>2. 类属性和类方法</strong></p>
+<ul>
+<li>在创建类class下面直接定义的变量称作类属性</li>
+<li>使用@classmethod装饰器进行装饰的函数，称作类方法 </li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 类方法(封装类属性,外界提供访问接口，保护类属性)</span></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_times</span><span class="params">(cls)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> cls.__print_times</span><br></pre></td></tr></table></figure>
+<p><strong>3. 静态方法</strong></p>
+<ul>
+<li>使用@staticmethod装饰器进行装饰的函数，称作静态方法</li>
+<li>静态方法没有默认的 self 或者 cls 参数, 如果方法并没有访问实例属性或者类属性, 我们可将其设置为静态方法, 减少了参数的传递.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 静态方法(可通过类名访问类属性)</span></span><br><span class="line">    <span class="comment"># 静态方法不可访问实例属性</span></span><br><span class="line">    print(NewsPaper.__print_times)</span><br><span class="line">    print(<span class="string">"我是静态方法!"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>三者的区别</strong></p>
+<ul>
+<li>实例方法：<strong>实例方法可以通过实例对象进行调用和访问， 方法内可以使用self访问调用实例属性和实例方法，使用cls关键字访问调用类属性和类方法</strong></li>
+<li>类方法： <strong>类属性和类方法归所有本类型的实例对象共享, 可通过实例对象访问, 也可通过类对象访问. 如果要修改类属性, 必须通过类名的方式访问.</strong></li>
+<li>静态方法：<strong>静态方法可通过类对象或者实例对象访问, 静态方法内部不可访问实例属性, 但可通过类名访问实例属性.</strong></li>
+</ul>
+
       
 
       
@@ -202,6 +227,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python高级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -252,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/03/07/Pyhton高级/4. classmethod和staticmethod总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,6 +300,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/03/10/Pyhton高级/3. 迭代器和生成器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python中生成器generator和迭代器Iterator的使用方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/05/Pyhton高级/2. GIL全局解释器锁/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于python的GIL全局解释器锁的简单理解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -319,7 +374,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

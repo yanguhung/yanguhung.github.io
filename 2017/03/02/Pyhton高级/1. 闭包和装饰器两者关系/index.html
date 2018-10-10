@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>404 | UH的博客</title>
+  <title>闭包和装饰器,两者关系以及装饰器工厂的使用 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杨宇航的博客">
-<meta name="keywords" content="Python, web后端, Flask, Django, 服务器, Mysql, redis">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://yanguhung.github.io/404/index.html">
+  <meta name="description" content="一、闭包1. 闭包的概念  用函数的概念说明定义函数的本质123456789101112131415161718192021def test1():    print(&quot;--- in test1 func----&quot;)# 调用函数test1()# 引用函数ret = test1print(id(ret))print(id(test1))# 通过引用调用函数ret()* 打印结果    --- in">
+<meta name="keywords" content="Python高级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包和装饰器,两者关系以及装饰器工厂的使用">
+<meta property="og:url" content="https://yanguhung.github.io/2017/03/02/Pyhton高级/1. 闭包和装饰器两者关系/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="杨宇航的博客">
+<meta property="og:description" content="一、闭包1. 闭包的概念  用函数的概念说明定义函数的本质123456789101112131415161718192021def test1():    print(&quot;--- in test1 func----&quot;)# 调用函数test1()# 引用函数ret = test1print(id(ret))print(id(test1))# 通过引用调用函数ret()* 打印结果    --- in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T13:18:20.511Z">
+<meta property="og:updated_time" content="2018-10-10T17:18:15.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description" content="杨宇航的博客">
+<meta name="twitter:title" content="闭包和装饰器,两者关系以及装饰器工厂的使用">
+<meta name="twitter:description" content="一、闭包1. 闭包的概念  用函数的概念说明定义函数的本质123456789101112131415161718192021def test1():    print(&quot;--- in test1 func----&quot;)# 调用函数test1()# 引用函数ret = test1print(id(ret))print(id(test1))# 通过引用调用函数ret()* 打印结果    --- in">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -153,27 +153,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Pyhton高级/1. 闭包和装饰器两者关系" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      闭包和装饰器,两者关系以及装饰器工厂的使用
     </h1>
   
 
         
-        <a href="/404/index.html" class="archive-article-date">
-  	<time datetime="2018-10-10T13:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+        <a href="/2017/03/02/Pyhton高级/1. 闭包和装饰器两者关系/" class="archive-article-date">
+  	<time datetime="2017-03-02T03:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="一、闭包"><a href="#一、闭包" class="headerlink" title="一、闭包"></a>一、闭包</h3><p><strong>1. 闭包的概念</strong></p>
+<blockquote>
+<p>用函数的概念说明定义函数的本质<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"--- in test1 func----"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">test1()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 引用函数</span></span><br><span class="line">ret = test1</span><br><span class="line"></span><br><span class="line">print(id(ret))</span><br><span class="line">print(id(test1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过引用调用函数</span></span><br><span class="line">ret()</span><br><span class="line"></span><br><span class="line">* 打印结果</span><br><span class="line"></span><br><span class="line">    --- <span class="keyword">in</span> test1 func----</span><br><span class="line">    <span class="number">140212571149040</span></span><br><span class="line">    <span class="number">140212571149040</span></span><br><span class="line">    --- <span class="keyword">in</span> test1 func----</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>     
+<ul>
+<li>由此可以看出两个函数的内存地址都是一致的,整个过程可以看做: <ul>
+<li>首先定义一个函数 </li>
+<li>将标识符test1指向这个函数的内存地址 </li>
+<li>通过ret = test1,将ret也指向这个函数的地址   </li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 闭包</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(number)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_in</span><span class="params">(number_in)</span>:</span></span><br><span class="line">        print(<span class="string">"in test_in 函数, number_in is %d"</span> % number_in)</span><br><span class="line">        <span class="keyword">return</span> number+number_in</span><br><span class="line">    <span class="comment"># 其实这里返回的就是闭包的结果</span></span><br><span class="line">    <span class="keyword">return</span> test_in</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给test函数赋值，这个20就是给参数number</span></span><br><span class="line">ret = test(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意这里的100其实给参数number_in</span></span><br><span class="line">print(ret(<span class="number">100</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#注 意这里的200其实给参数number_in</span></span><br><span class="line">print(ret(<span class="number">200</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>3. 什么是闭包?</strong></p>
+<ul>
+<li>函数名只是函数代码空间的引用，当函数名赋值给一个对象的时候 就是引用传递 </li>
+<li>闭包就是一个嵌套定义的函数，在外层运行时才开始内层函数的定义，然后将内部函数的引用传递函数外的对象 </li>
+<li>内部函数和使用的外部函数提供的变量构成的整体称为闭包 </li>
+</ul>
+<h3 id="二、装饰器"><a href="#二、装饰器" class="headerlink" title="二、装饰器"></a>二、装饰器</h3><p><strong>1. 有这样的一种形象的比喻装饰器是什么?</strong></p>
+<ul>
+<li>内裤是用来遮羞的,但是到了冬天它的功能可能已经无法用来 遮挡风寒,所以人们就发明了长裤,秋裤等各种,保暖满足我的需求,装饰器所谓在内裤外面的长裤,没有改变内裤本身的功能,又给我增添了保暖的作用</li>
+</ul>
+<ul>
+<li>装饰器的本质就是一个python的函数,它在不需要更改任何代码的前提下增加额外的功能,</li>
+</ul>
+<ul>
+<li><p>应用场景:</p>
+<ul>
+<li>引入日志 </li>
+<li>函数执行时间统计 </li>
+<li>执行函数前预备处理 </li>
+<li>执行函数后清理功能 </li>
+<li>权限校验等场景 </li>
+<li>缓存 </li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>装饰器的两种实现方式**</li>
+</ol>
+<ul>
+<li><strong>第一种使用闭包的特点</strong> <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 定义函数：完成包裹数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeBold</span><span class="params">(fn)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapped</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;b&gt;"</span> + fn() + <span class="string">"&lt;/b&gt;"</span></span><br><span class="line">    <span class="keyword">return</span> wrapped</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数：完成包裹数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeItalic</span><span class="params">(fn)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapped</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;i&gt;"</span> + fn() + <span class="string">"&lt;/i&gt;"</span></span><br><span class="line">    <span class="keyword">return</span> wrapped</span><br><span class="line"></span><br><span class="line"><span class="string">''' </span></span><br><span class="line"><span class="string">@makeBold等价于test1 = makeBold(test1)  </span></span><br><span class="line"><span class="string">1. 将整个test1 = makeBlod(test1)从右到左执行  </span></span><br><span class="line"><span class="string">2. 先将test1赋值给makeBlod中的参数fn,test1和fn两个对象指向同一个函数  </span></span><br><span class="line"><span class="string">3. 由makeBlod返回函数生成一个wrapped函数  </span></span><br><span class="line"><span class="string">4. 将wrapped赋值给等号左侧的test1,更改了test1的指向  </span></span><br><span class="line"><span class="string">5. 当实际在下面调用test1函数时,调用的是wrapped函数  </span></span><br><span class="line"><span class="string">6. wrapped中返回值中的fn()会向外部函数makeBold搜索参数fn  </span></span><br><span class="line"><span class="string">7. 因此而达到不更改原代码的,在原有基础上增加功能</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="meta">@makeBold</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world-1"</span></span><br><span class="line">print(test1())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@makeItalic # 等价于test2 = makeBold(test2)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world-2"</span></span><br><span class="line">print(test2())</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>打印结果</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;hello world-1&lt;/b&gt;</span><br><span class="line">&lt;i&gt;hello world-2&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>多个装饰器装饰一个函数</strong> <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 在上面原有代码的基础上</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">1. 两个装饰器装饰同一个代码遵循原则,离函数近的装饰器先进行装饰  </span></span><br><span class="line"><span class="string">2. 下面的装饰器先装饰完后将整个装饰结果给第一个装饰器进行装饰  </span></span><br><span class="line"><span class="string">3. 可以看做test3 = makeBlod(makeItalic(test3)) 执行过程同上</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="meta">@makeBold</span></span><br><span class="line"><span class="meta">@makeItalic</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test3</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world-3"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>打印结果</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;&lt;i&gt;hello world-3&lt;/i&gt;&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>装饰器工厂</strong><br>  使用场景: 装饰器带参数,在原有装饰器的基础上，设置外部变量 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_run_time</span><span class="params">(flag)</span>:</span></span><br><span class="line">    <span class="string">"""如果flag值为1 print输出的结果为整数;其他则输出浮点数类型</span></span><br><span class="line"><span class="string">    装饰器工厂函数的功能  </span></span><br><span class="line"><span class="string">        1. 接收额外参数--&gt;内部代码使用  </span></span><br><span class="line"><span class="string">        2. 产生装饰器对象</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_time</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment">#         打包参数 args = (99,) kwargs=&#123;&#125;</span></span><br><span class="line">        func = args[<span class="number">0</span>]</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            begin = time.time()</span><br><span class="line">            <span class="comment">#   解包参数  (99)   暂存返回值 在最后返回</span></span><br><span class="line">            ret = func(*args, **kwargs)</span><br><span class="line">            end = time.time()</span><br><span class="line">            <span class="keyword">if</span> flag == <span class="number">1</span>:</span><br><span class="line">                print(<span class="string">"函数执行花费%d秒"</span> % int(end-begin))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">"函数执行花费%f秒"</span> % (end-begin))</span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        <span class="keyword">return</span> inner</span><br><span class="line">    <span class="keyword">return</span> get_time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1 调用装饰器工厂函数 接收参数生成装饰器 get_time = get_run_time(1)</span></span><br><span class="line"><span class="comment"># 2 @装饰器 对下面的函数进行装饰       func1 = get_time(func1)</span></span><br><span class="line"><span class="meta">@get_run_time(1)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">(number)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    print(<span class="string">"in func1 这个人有%d岁"</span> % number)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">200</span></span><br><span class="line">    </span><br><span class="line">ret = func1(<span class="number">99</span>)</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>打印结果</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> func1 这个人有<span class="number">99</span>岁</span><br><span class="line">函数执行花费<span class="number">0</span>秒</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数内带有参数的情况可以使用不定长参数或者关键字参数进行传参</p>
+</blockquote>
+<ul>
+<li><strong>第二种类装饰器</strong> </li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">mc</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, func)</span>:</span></span><br><span class="line">        <span class="string">"""类似装饰器函数的外层函数 接收被装饰的函数引用 保存"""</span></span><br><span class="line">        self.func = func</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="string">"""使用__call__方法让对象 像函数一样()进行调用"""</span></span><br><span class="line">        print(<span class="string">"被装饰的函数开始执行"</span>)</span><br><span class="line">        ret = self.func(*args, **kwargs)</span><br><span class="line">        print(<span class="string">"执行结束"</span>)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"><span class="comment"># 类装饰器只能实现一部分装饰器函数的功能 比如 装饰器工厂</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@mc</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(number, number2)</span>:</span></span><br><span class="line">    print(<span class="string">"in f1"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># f1 = mc(f1) # 实例对象 = 类名()</span></span><br><span class="line">f1(<span class="number">1</span>,<span class="number">1</span>)  <span class="comment"># 实例对象() ----&gt; 实例对象.__call__()</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -202,6 +275,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python高级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -252,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/03/02/Pyhton高级/1. 闭包和装饰器两者关系/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,6 +348,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/03/02/Python基础/2. 字符串、列表、元组、字典、集合/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python中字符串、列表、元组、字典、集合常用方法总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/03/MySQL/4. 用python连接mysql数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（一）flask-sqlalchemy的安装和配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -319,7 +422,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
