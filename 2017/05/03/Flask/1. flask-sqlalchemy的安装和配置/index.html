@@ -9,7 +9,7 @@
   <title>flask-sqlalchemy的安装和配置 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM ORM全拼 Object-Relation Mapping .称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.  比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查    ORM图解    ORM的优缺点有哪些?  优点 :  对数据库的操作都转">
-<meta name="keywords" content="Flask">
+<meta name="keywords" content="flask,SQLAlchemy,ORM模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flask-sqlalchemy的安装和配置">
 <meta property="og:url" content="https://yanguhung.github.io/2017/05/03/Flask/1. flask-sqlalchemy的安装和配置/index.html">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20181003174432463?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20181003174640182?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-10-11T02:37:22.340Z">
+<meta property="og:updated_time" content="2018-10-11T02:56:38.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flask-sqlalchemy的安装和配置">
 <meta name="twitter:description" content="在使用flask-sqlalchemy之前要先了解ORM模型，什么叫做ORM模型 一.什么是ORM ORM全拼 Object-Relation Mapping .称为 对象-关系映射   主要实现模型对象到关系数据库数据的映射.  比如下图：把数据库表中每条记录映射为一个模型对象，使用模型对象实现对数据的增删改查    ORM图解    ORM的优缺点有哪些?  优点 :  对数据库的操作都转">
@@ -262,13 +262,32 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SQLAlchemy</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ORM模型</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Flask//" class="article-tag-list-link color1">Flask</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -332,11 +351,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/05/MySQL/2. MySQL的进阶操作/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          MySQL数据库的基本使用
+          使用Python操作mysql
         
       </div>
     </a>
@@ -367,16 +386,6 @@
 </aside>
 
 
-
-  
-  
-  
-
-  
-
-  
-
-  
 
 
           </div>
@@ -475,11 +484,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+                <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flask</a>
+                <a href="javascript:void(0)" class="js-tag color1">SQLAlchemy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ORM模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,7 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +545,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
               </li>
             
             <div class="clearfix"></div>
