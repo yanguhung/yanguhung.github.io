@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>UH的博客</title>
+  <title>MySQL数据库的基本使用 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL的进阶使用sql语句一些功能的使用 导入现有大量数据文件步骤 12345678910   1） 把*.sql文件拷贝到Linux某一位置（例如Desktop）2） Linux命令行进入该位置 cd ~/Desktop3） 登录mysql4） 使用数据库 mysql&amp;gt; use 数据库名;5） 创建表 mysql&amp;gt; 	create table 表名(	添加字段	-- 字段属性要和">
-<meta name="keywords" content="Python, web后端, Flask, Django, 服务器, Mysql, redis">
+  <meta name="description" content="一、数据库概述1. 基本介绍  数据库就是以一定格式进行组织的数据的集合。通俗来看数据库就是用户计算机上 一些具有特殊格式的数据文件的集合">
+<meta name="keywords" content="Flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UH的博客">
-<meta property="og:url" content="https://yanguhung.github.io/2018/10/11/MySQL/2. MySQL的进阶操作/index.html">
+<meta property="og:title" content="MySQL数据库的基本使用">
+<meta property="og:url" content="https://yanguhung.github.io/2017/05/03/MySQL/1. MySQL数据库的基本操作/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="MySQL的进阶使用sql语句一些功能的使用 导入现有大量数据文件步骤 12345678910   1） 把*.sql文件拷贝到Linux某一位置（例如Desktop）2） Linux命令行进入该位置 cd ~/Desktop3） 登录mysql4） 使用数据库 mysql&amp;gt; use 数据库名;5） 创建表 mysql&amp;gt; 	create table 表名(	添加字段	-- 字段属性要和">
+<meta property="og:description" content="一、数据库概述1. 基本介绍  数据库就是以一定格式进行组织的数据的集合。通俗来看数据库就是用户计算机上 一些具有特殊格式的数据文件的集合">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/5541BBDBFE7F48DFA40ED2B69BA6B08F/1991">
-<meta property="og:updated_time" content="2018-10-10T17:17:34.858Z">
+<meta property="og:updated_time" content="2018-10-11T01:49:59.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UH的博客">
-<meta name="twitter:description" content="MySQL的进阶使用sql语句一些功能的使用 导入现有大量数据文件步骤 12345678910   1） 把*.sql文件拷贝到Linux某一位置（例如Desktop）2） Linux命令行进入该位置 cd ~/Desktop3） 登录mysql4） 使用数据库 mysql&amp;gt; use 数据库名;5） 创建表 mysql&amp;gt; 	create table 表名(	添加字段	-- 字段属性要和">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/5541BBDBFE7F48DFA40ED2B69BA6B08F/1991">
+<meta name="twitter:title" content="MySQL数据库的基本使用">
+<meta name="twitter:description" content="一、数据库概述1. 基本介绍  数据库就是以一定格式进行组织的数据的集合。通俗来看数据库就是用户计算机上 一些具有特殊格式的数据文件的集合">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -53,7 +51,7 @@
 			<img src="/assets/blog_img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">杨宇航</a></h1>
+		  <h1 class="header-author"><a href="/">UHung</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">不忘初心 方得始终</p>
@@ -111,7 +109,7 @@
 				<img src="/assets/blog_img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">杨宇航</h1>
+			  <h1 class="header-author js-header-author">UHung</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>不忘初心 方得始终<i class="icon icon-quo-right"></i></p>
@@ -155,299 +153,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL/2. MySQL的进阶操作" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL/1. MySQL数据库的基本操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL数据库的基本使用
+    </h1>
+  
+
+        
+        <a href="/2017/05/03/MySQL/1. MySQL数据库的基本操作/" class="archive-article-date">
+  	<time datetime="2017-05-03T10:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MySQL的进阶使用"><a href="#MySQL的进阶使用" class="headerlink" title="MySQL的进阶使用"></a>MySQL的进阶使用</h1><h3 id="sql语句一些功能的使用"><a href="#sql语句一些功能的使用" class="headerlink" title="sql语句一些功能的使用"></a>sql语句一些功能的使用</h3><ol>
-<li>导入现有大量数据文件步骤 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   1） 把*.sql文件拷贝到Linux某一位置（例如Desktop）</span><br><span class="line">2） Linux命令行进入该位置 cd ~/Desktop</span><br><span class="line">3） 登录mysql</span><br><span class="line">4） 使用数据库 mysql&gt; use 数据库名;</span><br><span class="line">5） 创建表 mysql&gt; </span><br><span class="line">	create table 表名(</span><br><span class="line">	添加字段</span><br><span class="line">	-- 字段属性要和要导入的文件内数据结构相同</span><br><span class="line">	);</span><br><span class="line">6） 执行命令 mysql&gt; source 表名.sql</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        <h3 id="一、数据库概述"><a href="#一、数据库概述" class="headerlink" title="一、数据库概述"></a>一、数据库概述</h3><p><strong>1. 基本介绍</strong></p>
+<blockquote>
+<p>数据库就是以一定格式进行组织的数据的集合。通俗来看数据库就是用户计算机上 一些具有特殊格式的数据文件的集合</p>
+</blockquote>
 <a id="more"></a>
-<ol start="2">
-<li><p><strong>AS 关键字的使用</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 字段起名</span><br><span class="line">select id as 序号, name as 名字, gender as 性别 from students;</span><br></pre></td></tr></table></figure>
+<p><strong>2. 数据库的特点</strong></p>
+<blockquote>
+<p>持久化存储\<br>读写速度极高\<br>保证数据的有效性\<br>对程序支持性非常好，容易扩展</p>
+</blockquote>
+<p><strong>3. 数据库管理系统</strong></p>
+<blockquote>
+<p>数据库管理系统（英语：Database Management System，简称DBMS）是为管理数据库而设计的软件系统，包括三大部分构成:<br>1) 数据库文件集合. 主要是一系列的数据文件, 作用是存储数据.<br>2) 数据库服务端. 主要负责对数据文件以及文件中的数据进行管理.<br>3) 数据库客户端. 对外通信</p>
+</blockquote>
+<p><strong>4. 数据库的分类</strong></p>
+<ul>
+<li><strong>关系型数据库</strong></li>
+</ul>
+<blockquote>
+<p>所谓的关系型数据库RDBMS，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据，本质上使用一张二维表来表示关系。<br>1) oracle 银行,电信等项目<br>2) ms sql server：在微软的项目中使用<br>3) sqlite：轻量级数据库，主要应用在移动平台<br>4) mysql：web时代使用最广泛的关系型数据库。</p>
+</blockquote>
+<ul>
+<li><strong>非关系型数据库</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li>键值存储数据库: 可以通过key来添加、查询或者删除数据库,Memcached、Redis、MemcacheDB等</li>
+<li>列存储数据库: 列存储数据库将数据存储在列族中，一个列族存储经常被一起查询的相关数据,Cassandra、HBase</li>
+<li>面向文档数据库: 面向文档数据库会将数据以文档形式存储,MongoDB、CouchDB</li>
+<li>图形数据库: 图形数据库允许我们将数据以图的方式存储,Neo4J、InforGrid</li>
+</ol>
+</blockquote>
+<h3 id="二、MySQL数据库的使用"><a href="#二、MySQL数据库的使用" class="headerlink" title="二、MySQL数据库的使用"></a>二、MySQL数据库的使用</h3><p><strong>1. 常用数据类型如下:</strong></p>
+<blockquote>
+<ul>
+<li>整数：int，bit</li>
+<li>小数：decimal</li>
+<li>字符串：varchar,char</li>
+<li>日期时间: date, time, datetime</li>
+<li>枚举类型(enum),枚举型实际可以当做元组,元组的索引值从1开始.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>特别说明的类型如下：</p>
+<ul>
+<li>decimal表示浮点数，如 decimal(5, 2) 表示共存5位数，小数占 2 位.</li>
+<li>char表示-固定长度的字符串，如char(3)，如果填充’ab’时会补一个空格为 ‘ab ‘  .</li>
+<li>varchar表示可变长度的字符串，如varchar(3)，填充’ab’时就会存储’ab’</li>
+<li><strong>注意 :</strong> 对于图片、音频、视频等文件，不存储在数据库中，而是上传到某个服务器上，然后在表中存储<br>这个文件的保存路径.<br>字符串 text 表示存储大文本，当字符大于 4000 时推荐使用, 比如技术博客.</li>
+</ul>
+</blockquote>
+<p><strong>2. 数据约束</strong></p>
+<blockquote>
+<ul>
+<li>主键 primary key: 物理上存储的顺序. MySQL 建议所有表的主键字段都叫 id, 类型为 int unsigned.</li>
+<li>非空 not null: 此字段不允许填写空值.</li>
+<li>惟一 unique: 此字段的值不允许重复.</li>
+<li>默认 default: 当不填写字段对应的值会使用默认值，如果填写时以填写为准.</li>
+<li>外键 foreign key: 对关系字段进行约束, 当为关系字段填写值时, 会到关联的表中查询此值是否存在,<br>如果存在则填写成功, 如果不存在则填写失败并抛出异常.</li>
+</ul>
+</blockquote>
+<h3 id="三、数据库相关的操作"><a href="#三、数据库相关的操作" class="headerlink" title="三、数据库相关的操作"></a><strong>三、数据库相关的操作</strong></h3><hr>
+<h3 id="数据库-database-的操作"><a href="#数据库-database-的操作" class="headerlink" title="数据库(database)的操作"></a><strong>数据库(database)的操作</strong></h3><p><em>Linux下运行数据库的命令</em></p>
+<ol>
+<li><p><strong>数据库登录</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>提示输入密码</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&apos;passwd&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据库服务器状态的查看</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据库服务器停止</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据库服务器启动</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>退出数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+d</span><br><span class="line">quit</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 表起名</span><br><span class="line">select s.id,s.name,s.gender from students as s;</span><br></pre></td></tr></table></figure>
-</code></pre><ol start="3">
-<li><p><strong>将查询的数据直接插入表中</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into xxx (字段名) select 语句</span><br><span class="line">  将select语句的结果集插入到一个表中</span><br></pre></td></tr></table></figure>
+<p><em>数据库系统命令</em></p>
+<ol>
+<li><p><strong>查看所有数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看版本</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select version();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看当前使用的数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select database();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>显示当前时间</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select now();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名 charset=utf8;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>删除数据库</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database 数据库名;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<ol start="4">
-<li><p><strong>distinct关键字</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">消除重复的行。</span><br><span class="line">select distinct gender from students;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="表-table-结构的操作"><a href="#表-table-结构的操作" class="headerlink" title="表(table)结构的操作"></a><strong>表(table)结构的操作</strong></h3><ol>
+<li><p><strong>展示当前数据库中所有的表</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看表结构的描述信息</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc stu;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建一个表结构</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改表的名字</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 原表名 rename 新表明;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改表-添加字段</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add 列名 类型;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改表-修改字段：重命名版</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 change 原名 新名 类型及约束;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改表-修改字段：只改约束和类型</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 modify 列名 类型及约束;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改表-删除字段</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop 列名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>删除表-慎重</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看表的创建语句-详细过程</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table 表名;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="关于三范式和E-R模型"><a href="#关于三范式和E-R模型" class="headerlink" title="关于三范式和E-R模型"></a>关于三范式和E-R模型</h3><ol>
-<li><p><strong>三范式</strong></p>
-<ul>
-<li>范式指的就是设计数据库的通用规范, 共有8种范式，一般需要遵守3范式即可<br>1NF强调字段是最小单元，不可再分</li>
-<li>2NF强调在1NF基础上必须要有主键和非主键字段必须完全依赖于主键，也就是说 不能部分依赖</li>
-<li>3MF强调在2NF基础上 非主键字段必须直接依赖于主键，也就是说不能传递依赖(间接依赖)。</li>
-</ul>
+<hr>
+<h3 id="表数据的操作"><a href="#表数据的操作" class="headerlink" title="表数据的操作"></a><strong>表数据的操作</strong></h3><ol>
+<li><p><strong>增(插入)</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert [into] 表名称 (列1,列2,列3),(列1,列2,列3)#需要哪个填哪个,不写默认按照原数据顺序  values (值1, 值2, 值3),(值1, 值2, 值3)#要插入的数据值,可以多个元组;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>E-R模型 即E-R图</strong></p>
-<p> <strong>E-R图</strong>由 实体、属性、实体之间的联系构成，主要用来描述 数据库中表结构。<br> <img src="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/5541BBDBFE7F48DFA40ED2B69BA6B08F/1991" alt="image"></p>
-<ul>
-<li>实体型(Entity):一般对应的是数据中的表名,在E-R图中用矩形表示，矩形框内写明实体名；比如 电商购物系统中用户、购物车、订单等都是实体。</li>
-<li>属性(Attribute)：一般对应的 表中的字段名称,在E-R图中用椭圆形表示，并用无向边将其与相应的实体连接起来；比如用户的ID、用户名、密码、昵称、身份证号码 都是属性。</li>
-<li>联系(Relationship)：<br>实体彼此之间相互连接的方式称为联系，也称为关系。联系可分为以下 3 种类型：<ul>
-<li>一对一</li>
-<li>一对多</li>
-<li>多对多</li>
-</ul>
+<li><p><strong>删</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 where 条件;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p><strong>改</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 set 字段名=新值(可多个参数,逗号隔开) where 条件(可用比较公式);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from stu;</span><br><span class="line">select age,name from stu;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<ul>
-<li><h3 id="举例一学生表"><a href="#举例一学生表" class="headerlink" title="举例一学生表"></a>举例一学生表</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from students;</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br><span class="line">| id | name      | age  | height | gender | cls_id | is_delete |</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br><span class="line">|  1 | 小明      |   18 | 180.00 | 女     |      1 |           |</span><br><span class="line">|  2 | 小月月    |   18 | 180.00 | 女     |      2 |          |</span><br><span class="line">|  3 | 彭于晏    |   29 | 185.00 | 男     |      1 |           |</span><br><span class="line">|  4 | 刘德华    |   59 | 175.00 | 男     |      2 |          |</span><br><span class="line">|  5 | 黄蓉      |   38 | 160.00 | 女     |      1 |           |</span><br><span class="line">|  6 | 凤姐      |   28 | 150.00 | 保密   |      2 |          |</span><br><span class="line">|  7 | 王祖贤    |   18 | 172.00 | 女     |      1 |          |</span><br><span class="line">|  8 | 周杰伦    |   36 |   NULL | 男     |      1 |           |</span><br><span class="line">|  9 | 程坤      |   27 | 181.00 | 男     |      2 |           |</span><br><span class="line">| 10 | 刘亦菲    |   25 | 166.00 | 女     |      2 |           |</span><br><span class="line">| 11 | 金星      |   33 | 162.00 | 中性   |      3 |          |</span><br><span class="line">| 12 | 静香      |   12 | 180.00 | 女     |      4 |           |</span><br><span class="line">| 13 | 郭靖      |   12 | 170.00 | 男     |      4 |           |</span><br><span class="line">| 14 | 周杰      |   34 | 176.00 | 女     |      5 |           |</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="一、Where-条件"><a href="#一、Where-条件" class="headerlink" title="一、Where 条件"></a>一、Where 条件</h3><ol>
-<li><p><strong>比较运算符</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">等于: =</span><br><span class="line">大于: &gt;</span><br><span class="line">大于等于: &gt;=</span><br><span class="line">小于: &lt;</span><br><span class="line">小于等于: &lt;=</span><br><span class="line">不等于: != 或 &lt;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="2">
-<li><p><strong>逻辑运算符</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">and</span><br><span class="line">    查询students表中，年龄在18到28之间的所有学生信息</span><br><span class="line">    错误实例: select * from students where 18&lt;age&lt;28;</span><br><span class="line">    正确: mysql&gt; select * from students where age &gt;= 18 and age &lt;= 28;</span><br><span class="line">or</span><br><span class="line">not</span><br></pre></td></tr></table></figure>
-<p> <strong>and比or先运算，如果同时出现并希望先算or，需要结合()使用</strong></p>
-</li>
-<li><p><strong>模糊查询</strong></p>
-<p> <strong>like</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%表示任意多个任意字符</span><br><span class="line">select * from students where name like &apos;静香%&apos;;</span><br></pre></td></tr></table></figure>
-<p> <strong>_表示一个任意字符</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where name like &apos;静_&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>范围查询</strong></p>
-<p> <strong>查询编号是1或3或8的学生</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where id in(1,3,8);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>**查询编号为3至8的学生**    
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where id between 3 and 8;</span><br></pre></td></tr></table></figure>
-
-**between A and B在匹配数据的时候匹配的范围空间是 [A,B]**
-</code></pre><ol start="5">
-<li><p><strong>空判断</strong></p>
-<p> <strong>判断为空</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is null</span><br></pre></td></tr></table></figure>
-<p> <strong>判非空</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is not null</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="二、排序"><a href="#二、排序" class="headerlink" title="二、排序"></a>二、排序</h3><ol>
-<li><p><strong>排序查询语法</strong>：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名 order by 列1 asc|desc [,列2 asc|desc,...]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>语法说明:\</p>
-<pre><code>1. 将行数据按照列1进行排序，如果某些行 列1 的值相同时，则按照 列2 排序，以此类推\
-2. asc从小到大排列，即升序\
-3. desc从大到小排序，即降序\
-4. 默认按照列值从小到大排列（即asc关键字）
-</code></pre></blockquote>
-<ul>
-<li><p>例1：查询未删除男生信息，按学号降序</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where gender=1 and is_delete=0 order by id desc;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例2：查询未删除学生信息，按名称升序</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where is_delete=0 order by name;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例3：显示所有的学生信息，先按照年龄从大–&gt;小排序，当年龄相同时 按照身高从高–&gt;矮排序</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students order by age desc,height desc;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="三、分页"><a href="#三、分页" class="headerlink" title="三、分页"></a>三、分页</h3><ol>
-<li><p><strong>分页查询语法</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名 limit start=0,count</span><br><span class="line">    说明</span><br><span class="line">    1. 从start开始，获取count条数据</span><br><span class="line">    2. start默认值为0</span><br><span class="line">    3. 也就是当用户需要获取数据的前n条的时候可以直接写上 xxx limit n;</span><br></pre></td></tr></table></figure>
-<p> <strong>例：查询前3行男生信息</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where gender=1 limit 0,3;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>获取第n页数据SQL语句的推导公式</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from students where is_delete=0 limit (n-1)*m,m</span><br><span class="line"># 注意：在sql语句中limit后不可以直接加公式</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="四、聚合函数"><a href="#四、聚合函数" class="headerlink" title="四、聚合函数"></a>四、聚合函数</h3><ol>
-<li><p><strong>count( * ) 表示计算总行数，括号中写星与列名，结果是相同的</strong></p>
-<p> 例：查询学生总数</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from students;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>max(列) 表示求此列的最大值</strong></p>
-<p> 例：查询女生的编号最大值</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max(id) from students where gender=2;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>min(列) 表示求此列的最小值</strong></p>
-<p> 例：查询未删除的学生最小编号</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select min(id) from students where is_delete=0;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>sum(列) 表示求此列的和</strong></p>
-<p> 例：查询男生的总年龄</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sum(age) from students where gender=1;</span><br><span class="line">-- 平均年龄</span><br><span class="line">select sum(age)/count(*) from students where gender=1;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>avg(列) 表示求此列的平均值</strong></p>
-<p> 例：查询未删除女生的编号平均值</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select avg(id) from students where is_delete=0 and gender=2;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="五、分组"><a href="#五、分组" class="headerlink" title="五、分组"></a>五、分组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">select * from students;</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br><span class="line">| id | name      | age  | height | gender | cls_id | is_delete |</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br><span class="line">|  1 | 小明      |   18 | 180.00 | 女     |      1 |           |</span><br><span class="line">|  2 | 小月月    |   18 | 180.00 | 女     |      2 |          |</span><br><span class="line">|  3 | 彭于晏    |   29 | 185.00 | 男     |      1 |           |</span><br><span class="line">|  4 | 刘德华    |   59 | 175.00 | 男     |      2 |          |</span><br><span class="line">|  5 | 黄蓉      |   38 | 160.00 | 女     |      1 |           |</span><br><span class="line">|  6 | 凤姐      |   28 | 150.00 | 保密   |      2 |          |</span><br><span class="line">|  7 | 王祖贤    |   18 | 172.00 | 女     |      1 |          |</span><br><span class="line">|  8 | 周杰伦    |   36 |   NULL | 男     |      1 |           |</span><br><span class="line">|  9 | 程坤      |   27 | 181.00 | 男     |      2 |           |</span><br><span class="line">| 10 | 刘亦菲    |   25 | 166.00 | 女     |      2 |           |</span><br><span class="line">| 11 | 金星      |   33 | 162.00 | 中性   |      3 |          |</span><br><span class="line">| 12 | 静香      |   12 | 180.00 | 女     |      4 |           |</span><br><span class="line">| 13 | 周杰      |   34 | 176.00 | 女     |      5 |           |</span><br><span class="line">| 14 | 郭靖      |   12 | 170.00 | 男     |      4 |           |</span><br><span class="line">+----+-----------+------+--------+--------+--------+-----------+</span><br></pre></td></tr></table></figure>
-<p><strong>1. group by分组</strong></p>
-<p><strong>使用特点:</strong></p>
-<ul>
-<li>group by的含义:将查询结果按照1个或多个字段进行分组，字段值相同的为一组</li>
-<li><p>group by可用于单个字段分组，也可用于多个字段分组</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select gender from students group by gender;</span><br><span class="line">+--------+</span><br><span class="line">| gender |</span><br><span class="line">+--------+</span><br><span class="line">| 男     |</span><br><span class="line">| 女     |</span><br><span class="line">| 中性   |</span><br><span class="line">| 保密   |</span><br><span class="line">+--------+</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>2. group_concat(字段名)</strong></p>
-<p><strong>使用特点</strong></p>
-<ul>
-<li><p>根据分组结果，使用group_concat()来放置每一个分组中某字段的集合</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">select gender from students group by gender;</span><br><span class="line">+--------+</span><br><span class="line">| gender |</span><br><span class="line">+--------+</span><br><span class="line">| 男     |</span><br><span class="line">| 女     |</span><br><span class="line">| 中性   |</span><br><span class="line">| 保密   |</span><br><span class="line">+--------+</span><br><span class="line"></span><br><span class="line">select gender,group_concat(name) from students group by gender;</span><br><span class="line">+--------+-----------------------------------------------------------+</span><br><span class="line">| gender | group_concat(name)                                        |</span><br><span class="line">+--------+-----------------------------------------------------------+</span><br><span class="line">| 男     | 彭于晏,刘德华,周杰伦,程坤,郭靖                                 |</span><br><span class="line">| 女     | 小明,小月月,黄蓉,王祖贤,刘亦菲,静香,周杰                        |</span><br><span class="line">| 中性   | 金星                                                       |</span><br><span class="line">| 保密   | 凤姐                                                       |</span><br><span class="line">+--------+-----------------------------------------------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select gender,group_concat(id) from students group by gender;</span><br><span class="line">+--------+------------------+</span><br><span class="line">| gender | group_concat(id) |</span><br><span class="line">+--------+------------------+</span><br><span class="line">| 男     | 3,4,8,9,14       |</span><br><span class="line">| 女     | 1,2,5,7,10,12,13 |</span><br><span class="line">| 中性   | 11               |</span><br><span class="line">| 保密   | 6                |</span><br><span class="line">+--------+------------------+</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>3. group by + 聚合函数</strong></p>
-<p><strong>使用特点</strong></p>
-<ul>
-<li><p>聚合函数在和group by结合使用的时候 统计的对象是每一个分组。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">select gender,group_concat(age) from students group by gender;</span><br><span class="line">+--------+----------------------+</span><br><span class="line">| gender | group_concat(age)    |</span><br><span class="line">+--------+----------------------+</span><br><span class="line">| 男     | 29,59,36,27,12       |</span><br><span class="line">| 女     | 18,18,38,18,25,12,34 |</span><br><span class="line">| 中性   | 33                   |</span><br><span class="line">| 保密   | 28                   |</span><br><span class="line">+--------+----------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分别统计性别为男/女的人年龄平均值</span><br><span class="line">select gender,avg(age) from students group by gender;</span><br><span class="line">+--------+----------+</span><br><span class="line">| gender | avg(age) |</span><br><span class="line">+--------+----------+</span><br><span class="line">| 男     |  32.6000 |</span><br><span class="line">| 女     |  23.2857 |</span><br><span class="line">| 中性   |  33.0000 |</span><br><span class="line">| 保密   |  28.0000 |</span><br><span class="line">+--------+----------+</span><br><span class="line"></span><br><span class="line">分别统计性别为男/女的人的个数</span><br><span class="line">select gender,count(*) from students group by gender;</span><br><span class="line">+--------+----------+</span><br><span class="line">| gender | count(*) |</span><br><span class="line">+--------+----------+</span><br><span class="line">| 男     |        5 |</span><br><span class="line">| 女     |        7 |</span><br><span class="line">| 中性   |        1 |</span><br><span class="line">| 保密   |        1 |</span><br><span class="line">+--------+----------+</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>4. group by + having</strong></p>
-<ul>
-<li><p>having作用和where类似，但having只能用于group by 而where是用来过滤表数据</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select gender,count(*) from students group by gender having count(*)&gt;2;</span><br><span class="line">+--------+----------+</span><br><span class="line">| gender | count(*) |</span><br><span class="line">+--------+----------+</span><br><span class="line">| 男     |        5 |</span><br><span class="line">| 女     |        7 |</span><br><span class="line">+--------+----------+</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>5. group by + with rollup</strong></p>
-<ul>
-<li><p>with rollup的作用是：在最后新增一行，来记录当前表中该字段对应的操作结果，一般是汇总结果。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">select gender,count(*) from students group by gender with rollup;</span><br><span class="line">+--------+----------+</span><br><span class="line">| gender | count(*) |</span><br><span class="line">+--------+----------+</span><br><span class="line">| 男     |        5 </span><br><span class="line">| 女     |        7 |</span><br><span class="line">| 中性   |        1 |</span><br><span class="line">| 保密   |        1 |</span><br><span class="line">| NULL   |       14 |</span><br><span class="line">+--------+----------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select gender,group_concat(age) from students group by gender with rollup;</span><br><span class="line">+--------+-------------------------------------------+</span><br><span class="line">| gender | group_concat(age)                         |</span><br><span class="line">+--------+-------------------------------------------+</span><br><span class="line">| 男     | 29,59,36,27,12                            |</span><br><span class="line">| 女     | 18,18,38,18,25,12,34                      |</span><br><span class="line">| 中性   | 33                                        |</span><br><span class="line">| 保密   | 28                                        |</span><br><span class="line">| NULL   | 29,59,36,27,12,18,18,38,18,25,12,34,33,28 |</span><br><span class="line">+--------+-------------------------------------------+</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="六、连接"><a href="#六、连接" class="headerlink" title="六、连接"></a>六、连接</h3><ol>
-<li><p>连接的概念</p>
-<p> <strong>mysql支持三种类型的连接查询，分别为：</strong></p>
-<p> 1). 内连接查询：查询的结果为两个表匹配到的数据</p>
-<p> 2). 右(外)连接查询：查询的结果为两个表匹配到的数据和右表特有的数据，对于左表中不存在的数据使用null填充 </p>
-<p> 3). 左(外)连接查询：查询的结果为两个表匹配到的数据和左表特有的数据，对于右表中不存在的数据使用null填充</p>
-<p> <strong>注意: 能够使用连接的前提是 多表之间有字段上的关联</strong></p>
-</li>
-<li><p>连接查询语法</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 对于外连接 outer关键字可以省略 </span><br><span class="line">select * from 表1 inner或left或right join 表2 on 表1.列 运算符 表2.列</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">例1：使用内连接查询班级表与学生表</span><br><span class="line"></span><br><span class="line">select * from students inner join classes on students.cls_id = classes.id;</span><br><span class="line">例2：使用左连接查询班级表与学生表</span><br><span class="line"></span><br><span class="line"># 此处使用了as为表起别名，目的是编写简单</span><br><span class="line">select * from students as s left join classes as c on s.cls_id = c.id;</span><br><span class="line">例3：使用右连接查询班级表与学生表</span><br><span class="line"></span><br><span class="line">select * from students as s right join classes as c on s.cls_id = c.id;</span><br><span class="line">例4：查询学生姓名及班级名称</span><br><span class="line"></span><br><span class="line">select s.name,c.name from students as s inner join classes as c on s.cls_id = c.id;</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="七、自连接"><a href="#七、自连接" class="headerlink" title="七、自连接"></a>七、自连接</h3><blockquote>
-<ul>
-<li>当需要将多张”表”的相关数据汇总一个结果集中, 并且多张”表”的数据来自于同一张表</li>
-<li>自连接就是一种特殊的连接方式</li>
-<li>需要对表起多个不同的别名才能进行自连接查询</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>注意: 自连接可以使用交叉连接,内连接,外连接多种方式连接</strong></li>
-</ul>
-<h3 id="八、子查询"><a href="#八、子查询" class="headerlink" title="八、子查询"></a>八、子查询</h3><ol>
-<li><p><strong>子查询的概念</strong></p>
-<blockquote>
-<p>在一个 select 语句中,嵌入了另外一个 select 语句, 那么被嵌入的 select 语句称之为<strong>子查询语句</strong>,外部那个select语句则称为<strong>主查询</strong>.</p>
-</blockquote>
-</li>
-<li><p><strong>主查询和子查询的关系</strong></p>
-<blockquote>
-<ul>
-<li>子查询是嵌入到主查询中</li>
-<li>子查询是辅助主查询的,要么充当条件,要么充当数据源</li>
-<li>子查询是可以独立存在的语句,是一条完整的 select 语句</li>
-</ul>
-</blockquote>
-</li>
-<li><p><strong>查询的分类</strong></p>
-</li>
-</ol>
-<ul>
-<li><p><strong>标量子查询:</strong></p>
-<blockquote>
-<ul>
-<li>子查询返回的结果是一个数据(一行一列)</li>
-<li>子查询返回的值是max,min,avg等聚合函数得到的值作为一个数据</li>
-<li>因为标量子查询只返回一个值,也可以使用其他运算符和标量子查询进行比较,如”&gt;, &gt;=, &lt;, &lt;=”等</li>
-</ul>
-</blockquote>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 例:查询班级学生的平均身高</span><br><span class="line">select * from students where age &gt; (select avg(age) from students);</span><br><span class="line"># 其中第二个select语句就是一个标量子查询</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>列子查询:</strong> 返回的结果是一列(一列多行)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">格式:主查询 where 条件 in (列子查询)</span><br><span class="line">例: 查询还有学生在班的所有班级名字</span><br><span class="line">1. 找出学生表中所有的班级 id</span><br><span class="line">2. 找出班级表中对应的名字</span><br><span class="line">select name from classes where id in (select cls_id from students);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>行子查询:</strong>  返回的结果是一行(一行多列)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式: 主查询 where (字段1,2,...) = (行子查询)</span><br><span class="line">例: 查找班级年龄最大,身高最高的学生</span><br><span class="line">行元素: 将多个字段合成一个行元素,在行级子查询中会使用到行元素</span><br><span class="line">select * from students where (height,age) = (select max(height),max(age) from students);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="九、完整的sql语句"><a href="#九、完整的sql语句" class="headerlink" title="九、完整的sql语句"></a>九、完整的sql语句</h3><ul>
-<li><p>在sql中各语句的执行顺序</p>
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> select_expr [,select_expr,...] [      </span><br><span class="line">      <span class="keyword">FROM</span> tb_name</span><br><span class="line">      [<span class="keyword">JOIN</span> 表名]</span><br><span class="line">      [<span class="keyword">ON</span> 连接条件] </span><br><span class="line">      [<span class="keyword">WHERE</span> 条件判断]</span><br><span class="line">      [<span class="keyword">GROUP</span> <span class="keyword">BY</span> &#123;col_name | postion&#125; [<span class="keyword">ASC</span> | <span class="keyword">DESC</span>], ...] </span><br><span class="line">      [<span class="keyword">HAVING</span> <span class="keyword">WHERE</span> 条件判断]</span><br><span class="line">      [<span class="keyword">ORDER</span> <span class="keyword">BY</span> &#123;col_name|expr|postion&#125; [<span class="keyword">ASC</span> | <span class="keyword">DESC</span>], ...]</span><br><span class="line">      [ <span class="keyword">LIMIT</span> &#123;[<span class="keyword">offset</span>,]rowcount | <span class="keyword">row_count</span> <span class="keyword">OFFSET</span> <span class="keyword">offset</span>&#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="十、外键"><a href="#十、外键" class="headerlink" title="十、外键"></a>十、外键</h3><ul>
-<li><strong>外键说明</strong></li>
-</ul>
-<blockquote>
-<ul>
-<li>foreign key约束指定某一个列或一组列作为外部键，其中包含外部键的表称为子表，包含外键所引用的键的表称为父表</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>外键的使用格式</strong></li>
-</ul>
-<blockquote>
-<ul>
-<li>给现有表添加外键</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- alter table 父表 add foreign key (父表内的列名) references 子表(子表列名);</span><br><span class="line"></span><br><span class="line">-- 若出现1452错误</span><br><span class="line">-- 错误原因:已经添加了一个不存在的cate_id值12,因此需要先删除</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>创建表时添加外键</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table goods(</span><br><span class="line">    表结构的内容,</span><br><span class="line">    foreign key(父表 #goods 结构中的字段) references 要引用的子表名(子表中的字段),</span><br><span class="line">    foreign key(brand_id) references goods_brands(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><strong>注意: 父表 中的 列名 的类型一定要和 子 表中的 列名 类型一致</strong></p>
-<blockquote>
-<ul>
-<li>删除外键约束</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 需要先获取外键约束名称,该名称系统会自动生成,可以通过查看表创建语句来获取名称</span><br><span class="line">-- 查勘表结构,表结构内 CONSTRAINT 后面就是外键名</span><br><span class="line">alter table 表名 drop FOREIGN key 外键名;</span><br></pre></td></tr></table></figure>
-<p><strong>外键使用时的注意点:</strong></p>
-<blockquote>
-<ul>
-<li>使用到外键约束会极大的降低表更新的效率, 所以在追求读写效率优先的场景下一般很少使用外键。</li>
-<li>外键约束作用 子表中的外键字段在插入和更新 新值的时候 新值必须 在主表中相应字段出现过。</li>
-</ul>
-</blockquote>
-<h3 id="十一、-注意项"><a href="#十一、-注意项" class="headerlink" title="十一、 注意项"></a>十一、 注意项</h3><p>1、<strong>合理的选择数据类型</strong></p>
-<blockquote>
-<p>选择合理范围内最小的，因为这样可以大大减少磁盘空间及磁盘I/0读写开销，减少内存占用，减少CPU的占用率。</p>
-</blockquote>
-<p>2、 <strong>选择相对简单的数据类型</strong></p>
-<blockquote>
-<p>数字类型相对字符串类型要简单的多，尤其是在比较运算时，所以我们应该选择最简单的数据类型。</p>
-</blockquote>
-<p>3、<strong>列属性尽量为 NOT NULL</strong></p>
-<blockquote>
-<p>MYSQL对NULL字段优化不佳，增加更多的计算难度，同时在保存与处理NULL类形时，也会做更多的工作，所以从效率上来说，不建议用过多的NULL。\<br>有些值他确实有可能没有值，怎么办呢？解决方法是数值弄用整数0，字符串用””来定义默认值即可。</p>
-</blockquote>
-<p>4、<strong>int(10)是什么含义</strong></p>
-<blockquote>
-<p>代表显示宽度，整数列的显示宽度与mysql需要用多少个字符来显示该列数值，与该整数需要的存储空间的大小都没有关系。\<br>比如，不管设定了显示宽度是多少个字符，int都要占用4个字节。</p>
-</blockquote>
 
       
 
@@ -477,6 +356,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -527,7 +417,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2018/10/11/MySQL/2. MySQL的进阶操作/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/05/03/MySQL/1. MySQL数据库的基本操作/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -541,11 +431,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/11/MySQL/3. MySQL在Python中编程的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          使用Python操作mysql
         
       </div>
     </a>
@@ -592,16 +482,16 @@
         </div>
       </div>
       <footer id="footer">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 杨宇航
+    		&copy; 2018 UHung
     	</div>
-      
-      <span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-
-      
-      <span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+      	<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
