@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
   <title>请求钩子 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
+  <meta name="description" content="在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
 <meta name="keywords" content="python,flask,请求钩子,flask框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="请求钩子">
 <meta property="og:url" content="https://yanguhung.github.io/2017/05/28/Flask/3. 请求钩子函数/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
+<meta property="og:description" content="在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-11T03:02:03.784Z">
+<meta property="og:updated_time" content="2018-10-11T03:03:34.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="请求钩子">
-<meta name="twitter:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
+<meta name="twitter:description" content="在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -173,7 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="请求钩子"><a href="#请求钩子" class="headerlink" title="请求钩子"></a>请求钩子</h1><ol>
+        <ol>
 <li><p>在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：</p>
 <ul>
 <li>在请求开始时，建立数据库连接；</li>
@@ -183,11 +183,12 @@
 </li>
 </ol>
 <blockquote>
-<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。<br><a id="more"></a></p>
+<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。</p>
+</blockquote>
+<a id="more"></a>
 <ol start="2">
 <li>请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：</li>
 </ol>
-</blockquote>
 <ul>
 <li>before_first_request:在处理第一个请求前执行</li>
 <li>before_request:在每次请求前执行,在该装饰函数中,一旦return,视图函数不再执行</li>
@@ -471,19 +472,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,11 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
