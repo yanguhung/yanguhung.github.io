@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
   <title>请求钩子 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。   请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：   before_first_request:">
-<meta name="keywords" content="flask,python,请求钩子,flask框架">
+  <meta name="description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
+<meta name="keywords" content="python,flask,请求钩子,flask框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="请求钩子">
-<meta property="og:url" content="https://yanguhung.github.io/2018/10/05/Flask/3. 请求钩子函数/index.html">
+<meta property="og:url" content="https://yanguhung.github.io/2017/05/28/Flask/3. 请求钩子函数/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。   请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：   before_first_request:">
+<meta property="og:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-11T02:48:03.409Z">
+<meta property="og:updated_time" content="2018-10-11T03:02:03.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="请求钩子">
-<meta name="twitter:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。   请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：   before_first_request:">
+<meta name="twitter:description" content="请求钩子 在客户端和服务器交互的过程中，有些准备工作或扫尾工作需要处理，比如：  在请求开始时，建立数据库连接； 在请求开始时，根据需求进行权限校验； 在请求结束时，指定数据的交互格式；     为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -165,8 +165,8 @@
   
 
         
-        <a href="/2018/10/05/Flask/3. 请求钩子函数/" class="archive-article-date">
-  	<time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
+        <a href="/2017/05/28/Flask/3. 请求钩子函数/" class="archive-article-date">
+  	<time datetime="2017-05-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-28</time>
 </a>
         
       </header>
@@ -183,11 +183,11 @@
 </li>
 </ol>
 <blockquote>
-<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。</p>
-</blockquote>
+<p>为了让每个视图函数避免编写重复功能的代码，Flask提供了通用设施的功能，即请求钩子。<br><a id="more"></a></p>
 <ol start="2">
 <li>请求钩子是通过装饰器的形式实现，Flask支持如下四种请求钩子：</li>
 </ol>
+</blockquote>
 <ul>
 <li>before_first_request:在处理第一个请求前执行</li>
 <li>before_request:在每次请求前执行,在该装饰函数中,一旦return,视图函数不再执行</li>
@@ -245,11 +245,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -324,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2018/10/05/Flask/3. 请求钩子函数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/05/28/Flask/3. 请求钩子函数/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,9 +338,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/07/03/虚拟环境/1. Ubuntu下安装Flask虚拟环境及使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Ubuntu下安装Flask虚拟环境及使用
+        
+      </div>
+    </a>
   
-    <a href="/2018/05/05/Flask/2. flask-sqlalchemy基本操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">flask-sqlalchemy基本操作</div>
+  
+    <a href="/2017/05/27/Web服务器/搭建简易的WebServer(基于pyhton实现简易Web框架 使用socket套接字)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建简易的WebServer(基于pyhton实现简易Web框架 使用socket套接字)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -462,6 +471,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
              
@@ -474,31 +503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">请求钩子</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">flask框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
