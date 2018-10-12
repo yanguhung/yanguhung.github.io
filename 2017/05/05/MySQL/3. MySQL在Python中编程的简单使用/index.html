@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="UH的博客">
 <meta property="og:description" content="图示操作流程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/CD48896B53B5442DBDFD4A7620453169/2152">
-<meta property="og:updated_time" content="2018-10-11T03:00:05.526Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-10-12T05:01:15.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Python操作mysql">
 <meta name="twitter:description" content="图示操作流程">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/CD48896B53B5442DBDFD4A7620453169/2152">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -188,7 +188,7 @@
         <ul>
 <li>图示操作流程</li>
 </ul>
-<p><img src="https://note.youdao.com/yws/public/resource/27e10ad78cb67574fb3409205f6f409a/xmlnote/CD48896B53B5442DBDFD4A7620453169/2152" alt="image"></p>
+<p><img src="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="image"></p>
 <a id="more"></a>
 <h3 id="一、使用的完整流程"><a href="#一、使用的完整流程" class="headerlink" title="一、使用的完整流程"></a>一、使用的完整流程</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 导入模块</span></span><br><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> connect</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 创建和数据库服务器的连接,自行设置 服务器地址,端口,用户名,密码,数据库名, 通信使用字符和数据库字符集一致</span></span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=, user=<span class="string">''</span>, password=<span class="string">''</span>,database=<span class="string">''</span>, charset=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 获取游标</span></span><br><span class="line">cursor = conn.cursor()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 执行ＳＱＬ语句 </span></span><br><span class="line">sql = <span class="string">"sql语句的内容,按照标准sql语句格式"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. execute执行后返回值就是ＳＱＬ语句在执行过程中影响的行数,可以打印出来显示语句是否执行成功</span></span><br><span class="line">row_count = cursor.execute(sql)</span><br><span class="line">print(<span class="string">"SQL语句执行影响的行数%d"</span> % row_count)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 提交数据,在pymysql中时默认不提交的,必须手动提交,否则无法写入数据库</span></span><br><span class="line">conn.commit()</span><br><span class="line"><span class="comment"># # 回滚数据到什么都不做的状态 即撤销刚刚的修改</span></span><br><span class="line">conn.rollback()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 关闭游标</span></span><br><span class="line">cursor.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 关闭连接</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
 <h3 id="二、关于SQL注入的问题"><a href="#二、关于SQL注入的问题" class="headerlink" title="二、关于SQL注入的问题"></a>二、关于SQL注入的问题</h3><ol>
@@ -466,6 +466,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
              
@@ -475,14 +483,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ORM模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +514,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,10 +539,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">虚拟环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
               </li>
             
             <div class="clearfix"></div>
