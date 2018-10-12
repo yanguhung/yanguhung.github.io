@@ -941,19 +941,19 @@
 
 
   
-    <article id="post-MySQL/3. MySQL在Python中编程的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MySQL/2. MySQL的进阶操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/">使用Python操作mysql</a>
+      <a class="article-title" href="/2017/05/05/MySQL/2. MySQL的进阶操作/">MySQL数据库的基本使用</a>
     </h1>
   
 
         
-        <a href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/" class="archive-article-date">
+        <a href="/2017/05/05/MySQL/2. MySQL的进阶操作/" class="archive-article-date">
   	<time datetime="2017-05-05T02:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
 </a>
         
@@ -961,12 +961,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>图示操作流程</li>
-</ul>
-<p><img src="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="image"></p>
+        <h3 id="sql语句一些功能的使用"><a href="#sql语句一些功能的使用" class="headerlink" title="sql语句一些功能的使用"></a>sql语句一些功能的使用</h3><ol>
+<li>导入现有大量数据文件步骤 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   1） 把*.sql文件拷贝到Linux某一位置（例如Desktop）</span><br><span class="line">2） Linux命令行进入该位置 cd ~/Desktop</span><br><span class="line">3） 登录mysql</span><br><span class="line">4） 使用数据库 mysql&gt; use 数据库名;</span><br><span class="line">5） 创建表 mysql&gt; </span><br><span class="line">	create table 表名(</span><br><span class="line">	添加字段</span><br><span class="line">	-- 字段属性要和要导入的文件内数据结构相同</span><br><span class="line">	);</span><br><span class="line">6） 执行命令 mysql&gt; source 表名.sql</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
         
-          <a class="article-more-a" href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/#more">more >></a>
+          <a class="article-more-a" href="/2017/05/05/MySQL/2. MySQL的进阶操作/#more">more >></a>
         
       
 
@@ -998,10 +998,6 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL/Python//" class="article-tag-list-link color2">Python</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -1009,7 +1005,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/05/MySQL/3. MySQL在Python中编程的简单使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/05/05/MySQL/2. MySQL的进阶操作/">展开全文 >></a>
         </p>
       
 
@@ -1142,14 +1138,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
              
@@ -1159,6 +1147,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ORM模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
