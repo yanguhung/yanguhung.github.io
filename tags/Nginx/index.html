@@ -6,25 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>TCP的三次握手和四次挥手图解 | UH的博客</title>
+  <title>Tag: Nginx | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. TCP建立连接的三次握手 （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。  （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送">
-<meta name="keywords" content="TCP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="TCP的三次握手和四次挥手图解">
-<meta property="og:url" content="https://yanguhung.github.io/2017/05/08/TCP/1. TCP的三次握手和四次挥手图解/index.html">
+  <meta name="description" content="Uhung的博客">
+<meta name="keywords" content="Python, web后端, Flask, Django, 服务器, Mysql, redis">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UH的博客">
+<meta property="og:url" content="https://yanguhung.github.io/tags/Nginx/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="1. TCP建立连接的三次握手 （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。  （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送">
+<meta property="og:description" content="Uhung的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20181001162816996?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20181001163127868?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20181001163504132?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20181001163755543?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-10-11T02:18:53.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP的三次握手和四次挥手图解">
-<meta name="twitter:description" content="1. TCP建立连接的三次握手 （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。  （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20181001162816996?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:title" content="UH的博客">
+<meta name="twitter:description" content="Uhung的博客">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -168,198 +162,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-TCP/1. TCP的三次握手和四次挥手图解" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      TCP的三次握手和四次挥手图解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/12/HTTP/3. http的发起请求的整个过程/" class="archive-article-date">
+  	<time datetime="2017-08-12T09:36:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/12/HTTP/3. http的发起请求的整个过程/">浏览器HTTP的请求的整个过程</a>
     </h1>
   
 
-        
-        <a href="/2017/05/08/TCP/1. TCP的三次握手和四次挥手图解/" class="archive-article-date">
-  	<time datetime="2017-05-08T08:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-TCP建立连接的三次握手"><a href="#1-TCP建立连接的三次握手" class="headerlink" title=" 1. TCP建立连接的三次握手"></a><strong> 1. TCP建立连接的三次握手</strong></h3><p> （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，<strong>等待Server确认</strong>。</p>
-<p> （2）第二次握手：Server收到数据包后由标志位SYN=1<strong>知道Client请求建立连接</strong>，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该<strong>数据包发送给Client以确认连接请求</strong>，Server进入SYN_RCVD状态。</p>
-<p> （3）第三次握手：<strong>Client收到确认后</strong>，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并<strong>将该数据包发送给Server</strong>，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。<br><a id="more"></a><br> 过程如下图所示：</p>
-<p> <img src="https://img-blog.csdn.net/20181001162816996?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<h3 id="2-TCP断开连接的四次挥手"><a href="#2-TCP断开连接的四次挥手" class="headerlink" title="2. TCP断开连接的四次挥手"></a><strong>2. TCP断开连接的四次挥手</strong></h3><p> <img src="https://img-blog.csdn.net/20181001163127868?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p> <strong>第一次挥手：</strong>主机1（可以是客户端，也可以是服务器端），设置 <code>Sequence Number</code> 和 <code>Acknowledgment Number</code> ，向主机2发送一个 <code>FIN</code> 报文段；此时，主机1进入 <code>FIN_WAIT_1</code> 状态；这表示主机1没有数据要发送给主机2了；</p>
-<p> <strong>第二次挥手：</strong>主机2收到了主机1发送的 <code>FIN</code> 报文段，向主机1回一个 <code>ACK</code> 报文段， <code>Acknowledgment Number</code> 为 <code>Sequence Number</code> 加1；主机1进入 <code>FIN_WAIT_2</code> 状态；主机2告诉主机1，我也没有数据要发送了，可以进行关闭连接了；</p>
-<p> <strong>第三次挥手</strong>：主机2向主机1发送 <code>FIN</code> 报文段，请求关闭连接，同时主机2进入 <code>CLOSE_WAIT</code> 状态；</p>
-<p> <strong>第四次挥手：</strong>主机1收到主机2发送的 <code>FIN</code> 报文段，向主机2发送 <code>ACK</code> 报文段，然后主机1进入 <code>TIME_WAIT</code> 状态；主机2收到主机1的 <code>ACK</code> 报文段以后，就关闭连接；此时，主机1等待2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，主机1也可以关闭连接了。</p>
-<p> 三次握手、四次挥手完整图：</p>
-<p> <img src="https://img-blog.csdn.net/20181001163504132?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p> <strong>问题</strong></p>
-<p> <strong>1.为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</strong></p>
-<p> MSL是Maximum Segment Lifetime英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。2MSL 即是2倍的“报文最大最大生存时间“</p>
-<p> 虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。</p>
-<p> <img src="https://img-blog.csdn.net/20181001163755543?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p> <strong>2.client发送完最后一个ack之后，进入time_wait状态，但是他怎么知道server有没有收到这个ack呢？莫非sever也要等待一段时间，如果收到了这个ack就close，如果没有收到就再发一个fin给client？这么说server最后也有一个time_wait哦？</strong></p>
-<p> 因为网络原因，主动关闭的一方发送的这个ACK包很可能延迟，从而触发被动连接一方重传FIN包。极端情况下，这一去一回，就是两倍的MSL时长。如果主动关闭的一方跳过TIME_WAIT直接进入CLOSED，或者在TIME_WAIT停留的时长不足两倍的MSL，那么当被动关闭的一方早先发出的延迟包到达后，就可能出现类似下面的问题：1.旧的TCP连接已经不存在了，系统此时只能返回RST包2.新的TCP连接被建立起来了，延迟包可能干扰新的连接，这就是为什么time_wait需要等待2MSL时长的原因。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/blog_img/wchatpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TCP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">request</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">response</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/05/08/TCP/1. TCP的三次握手和四次挥手图解/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/05/13/虚拟环境/1. Ubuntu下安装Flask虚拟环境及使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ubuntu下安装Flask虚拟环境及使用
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/07/Pyhton高级/4. classmethod和staticmethod总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python中的实例方法、classmethod和staticmethod的区别</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -387,9 +259,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -458,11 +330,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">XMind ZEN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +382,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">request</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">response</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,6 +411,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">flask框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,23 +478,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据库常用命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
               </li>
              
               <li class="article-tag-list-item">
