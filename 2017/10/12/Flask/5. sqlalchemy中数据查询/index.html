@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
   <title>sqlalchemy的数据查询 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据  需要注意的点:  如果不指定数据的表名称,那么默认就是类名称的小写  如果需要指定,通过tablename = ‘自定义表名’     2. 过滤器：筛选数据得到结果集 fi">
+  <meta name="description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据">
 <meta name="keywords" content="Flask,sqlalchemy,ORM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqlalchemy的数据查询">
 <meta property="og:url" content="https://yanguhung.github.io/2017/10/12/Flask/5. sqlalchemy中数据查询/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据  需要注意的点:  如果不指定数据的表名称,那么默认就是类名称的小写  如果需要指定,通过tablename = ‘自定义表名’     2. 过滤器：筛选数据得到结果集 fi">
+<meta property="og:description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-13T03:54:41.102Z">
+<meta property="og:updated_time" content="2018-10-13T15:21:47.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlalchemy的数据查询">
-<meta name="twitter:description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据  需要注意的点:  如果不指定数据的表名称,那么默认就是类名称的小写  如果需要指定,通过tablename = ‘自定义表名’     2. 过滤器：筛选数据得到结果集 fi">
+<meta name="twitter:description" content="使用ORM，操作对象进行查询1. 查：模型类.query 模型类.query : 得到了该模型的所有结果集  模型类.query.过滤器: 得到的又是一个新的结果集  模型类.query.过滤器.执行器: 取出集里面的数据">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -189,6 +189,7 @@
 <li><p>模型类.query.过滤器: 得到的又是一个新的结果集</p>
 </li>
 <li><p>模型类.query.过滤器.执行器: 取出集里面的数据</p>
+<a id="more"></a>
 </li>
 <li><p>需要注意的点:</p>
 <ul>
@@ -659,11 +660,59 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQLAlchemy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ORM模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sqlalchemy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">请求钩子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">flask框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,11 +728,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,11 +756,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,18 +780,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事物</a>
               </li>
              
@@ -751,11 +788,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python高级</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -783,46 +820,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据库常用命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SQLAlchemy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ORM模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">请求钩子</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">flask框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
@@ -835,11 +832,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sqlalchemy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ORM</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,6 +841,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">socket套接字</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据库常用命令</a>
               </li>
              
               <li class="article-tag-list-item">
