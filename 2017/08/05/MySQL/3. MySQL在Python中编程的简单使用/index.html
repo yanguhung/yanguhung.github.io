@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>cookie,localStorage,sessionStorage三者区别 | UH的博客</title>
+  <title>使用Python操作mysql | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本地存储的三种方式  cookie   容量最大4k，在同源的http请求时携带传递，损耗带宽，可设置访问路径，只有此路径及此路径的子路径才能访问此cookie，在设置的过期时间之前有效。">
-<meta name="keywords" content="cookie,localSorage,sessionStorage">
+  <meta name="description" content="图示操作流程">
+<meta name="keywords" content="MySQL,数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cookie,localStorage,sessionStorage三者区别">
-<meta property="og:url" content="https://yanguhung.github.io/2018/07/20/Web服务器/cookie,localStorage,sessionStorage三者区别/index.html">
+<meta property="og:title" content="使用Python操作mysql">
+<meta property="og:url" content="https://yanguhung.github.io/2017/08/05/MySQL/3. MySQL在Python中编程的简单使用/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="本地存储的三种方式  cookie   容量最大4k，在同源的http请求时携带传递，损耗带宽，可设置访问路径，只有此路径及此路径的子路径才能访问此cookie，在设置的过期时间之前有效。">
+<meta property="og:description" content="图示操作流程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-13T12:17:38.836Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-10-13T15:34:33.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cookie,localStorage,sessionStorage三者区别">
-<meta name="twitter:description" content="本地存储的三种方式  cookie   容量最大4k，在同源的http请求时携带传递，损耗带宽，可设置访问路径，只有此路径及此路径的子路径才能访问此cookie，在设置的过期时间之前有效。">
+<meta name="twitter:title" content="使用Python操作mysql">
+<meta name="twitter:description" content="图示操作流程">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -163,78 +165,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web服务器/cookie,localStorage,sessionStorage三者区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL/3. MySQL在Python中编程的简单使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      cookie,localStorage,sessionStorage三者区别
+      使用Python操作mysql
     </h1>
   
 
         
-        <a href="/2018/07/20/Web服务器/cookie,localStorage,sessionStorage三者区别/" class="archive-article-date">
-  	<time datetime="2018-07-20T09:21:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
+        <a href="/2017/08/05/MySQL/3. MySQL在Python中编程的简单使用/" class="archive-article-date">
+  	<time datetime="2017-08-05T02:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本地存储的三种方式</p>
-<ol>
-<li>cookie</li>
+        <ul>
+<li>图示操作流程</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180807143518279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aDI2ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="image"></p>
+<a id="more"></a>
+<h3 id="一、使用的完整流程"><a href="#一、使用的完整流程" class="headerlink" title="一、使用的完整流程"></a>一、使用的完整流程</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 导入模块</span></span><br><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> connect</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 创建和数据库服务器的连接,自行设置 服务器地址,端口,用户名,密码,数据库名, 通信使用字符和数据库字符集一致</span></span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=, user=<span class="string">''</span>, password=<span class="string">''</span>,database=<span class="string">''</span>, charset=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 获取游标</span></span><br><span class="line">cursor = conn.cursor()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 执行ＳＱＬ语句 </span></span><br><span class="line">sql = <span class="string">"sql语句的内容,按照标准sql语句格式"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. execute执行后返回值就是ＳＱＬ语句在执行过程中影响的行数,可以打印出来显示语句是否执行成功</span></span><br><span class="line">row_count = cursor.execute(sql)</span><br><span class="line">print(<span class="string">"SQL语句执行影响的行数%d"</span> % row_count)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 提交数据,在pymysql中时默认不提交的,必须手动提交,否则无法写入数据库</span></span><br><span class="line">conn.commit()</span><br><span class="line"><span class="comment"># # 回滚数据到什么都不做的状态 即撤销刚刚的修改</span></span><br><span class="line">conn.rollback()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 关闭游标</span></span><br><span class="line">cursor.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 关闭连接</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+<h3 id="二、关于SQL注入的问题"><a href="#二、关于SQL注入的问题" class="headerlink" title="二、关于SQL注入的问题"></a>二、关于SQL注入的问题</h3><ol>
+<li><strong>什么是SQL注入 产生原因</strong></li>
 </ol>
 <ul>
-<li>容量最大4k，在同源的http请求时携带传递，损耗带宽，可设置访问路径，只有此路径及此路径的子路径才能访问此cookie，在设置的过期时间之前有效。<a id="more"></a></li>
-<li>jQuery设置和获取<ul>
-<li>设置<ul>
-<li>$.cookie(‘mycookie’,’123’,{expires:7,path:’/‘});</li>
-</ul>
-</li>
-<li>获取<ul>
-<li>$.cookie(‘mycookie’);</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>后台将用户提交的带有恶意的数据和SQL进行字符串方式的拼接，从而影响了SQL语句的语义，最终产生数据泄露的现象。</li>
 </ul>
 <ol start="2">
-<li>localStorage </li>
+<li><strong>防止: sql语句的参数化</strong></li>
 </ol>
 <ul>
-<li>容量为5M或者更大，不会在请求时候携带传递，在所有同源窗口中共享，数据一直有效，除非人为删除，可作为长期数据。</li>
-<li>使用方法<ul>
-<li>设置：<ul>
-<li>localStorage.setItem(“dat”, “456”);</li>
-<li>localStorage.dat = ‘456’;</li>
-</ul>
+<li><p>将SQL语句的所有数据参数存在一个列表中传递给execute函数的第二个参数</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">row_count = cursor(游标对象).execute(sql语句, params)</span><br><span class="line"></span><br><span class="line"># sql语句中所有参数,都通过储存在params内,然后向sql语句传参</span><br><span class="line"># 那么params=[数值1,数值2....]，此时sql语句中有多个%s即可</span><br></pre></td></tr></table></figure>
 </li>
-<li>获取：<ul>
-<li>localStorage.getItem(“dat”);</li>
-<li>localStorage.dat</li>
-</ul>
-</li>
-<li>删除<ul>
-<li>localStorage.removeItem(“dat”);</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>ssionStorage</li>
-</ol>
-<ul>
-<li>容量为5M或者更大，不会在请求时候携带传递，在同源的当前窗口关闭前有效。</li>
-</ul>
-<ol start="4">
-<li>localStorage 和 sessionStorage 合称为Web</li>
-</ol>
-<ul>
-<li>Storage , Web Storage支持事件通知机制，可以将数据更新的通知监听者，Web Storage的api接口使用更方便。</li>
 </ul>
 
       
@@ -275,21 +244,32 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cookie</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">localSorage</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sessionStorage</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL/Python//" class="article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -339,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2018/07/20/Web服务器/cookie,localStorage,sessionStorage三者区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2017/08/05/MySQL/3. MySQL在Python中编程的简单使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +333,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/05/推荐/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/12/Flask/4. flask框架模板jinja2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          强烈推荐一款学习工作软件
+          flask框架模板jinja2语法
         
       </div>
     </a>
   
   
-    <a href="/2018/07/20/Git/Git代码仓库/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git代码仓库</div>
+    <a href="/2017/07/29/Pyhton高级/8. 多线程的资源竞争问题复现以及互斥锁/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多线程的资源竞争问题复现以及互斥锁</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,16 +368,6 @@
 </aside>
 
 
-
-  
-  
-  
-
-  
-
-  
-
-  
 
 
           </div>
