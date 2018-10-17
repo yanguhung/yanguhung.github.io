@@ -287,20 +287,20 @@
 
 
   
-    <article id="post-Docker/docker的安装和基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Docker/docker的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/15/Docker/docker的安装和基本使用/">Docker的安装</a>
+      <a class="article-title" href="/2018/09/21/Docker/docker的基本使用/">Docker的基本使用</a>
     </h1>
   
 
         
-        <a href="/2018/09/15/Docker/docker的安装和基本使用/" class="archive-article-date">
-  	<time datetime="2018-09-15T13:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
+        <a href="/2018/09/21/Docker/docker的基本使用/" class="archive-article-date">
+  	<time datetime="2018-09-21T15:16:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
 </a>
         
         
@@ -309,7 +309,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">945字</span>
+        <span class="post-count">286字</span>
       </span>
     </span>
 
@@ -318,7 +318,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -329,14 +329,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Ubuntu下简便方式安装"><a href="#Ubuntu下简便方式安装" class="headerlink" title="Ubuntu下简便方式安装"></a>Ubuntu下简便方式安装</h3><p>1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中</p>
-<pre><code>- sudo apt-key add gpg
-- sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb
-</code></pre><p>2.检查Docker CE是否安装正确</p>
-<pre><code>- sudo docker run hello-world
+        <h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><blockquote>
+<p>镜像就相当于使用安装Ubuntu时使用ISO文件，系统安装时依赖的ISO文件</p>
+</blockquote>
+<p>1.查看docker的环境</p>
+<pre><code>docker image ls
+</code></pre><p>2.加载docker</p>
+<pre><code>docker load -i 路径
 </code></pre>
         
-          <a class="article-more-a" href="/2018/09/15/Docker/docker的安装和基本使用/#more">more >></a>
+          <a class="article-more-a" href="/2018/09/21/Docker/docker的基本使用/#more">more >></a>
         
       
 
@@ -378,7 +380,127 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/15/Docker/docker的安装和基本使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/21/Docker/docker的基本使用/">展开全文 >></a>
+        </p>
+      
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Docker/docker的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/15/Docker/docker的安装/">Docker的安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/15/Docker/docker的安装/" class="archive-article-date">
+  	<time datetime="2018-09-15T13:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">945字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Ubuntu下简便方式安装"><a href="#Ubuntu下简便方式安装" class="headerlink" title="Ubuntu下简便方式安装"></a>Ubuntu下简便方式安装</h3><p>1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中</p>
+<pre><code>- sudo apt-key add gpg
+- sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb
+</code></pre><p>2.检查Docker CE是否安装正确</p>
+<pre><code>- sudo docker run hello-world
+</code></pre>
+        
+          <a class="article-more-a" href="/2018/09/15/Docker/docker的安装/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">docker的安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/15/Docker/docker的安装/">展开全文 >></a>
         </p>
       
       
@@ -1271,118 +1393,6 @@
 
 
   
-    <article id="post-Linux/2. Linux常用命令总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/Linux/2. Linux常用命令总结/">Linux常用命令总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/Linux/2. Linux常用命令总结/" class="archive-article-date">
-  	<time datetime="2017-08-24T07:34:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">885字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Linux常用命令总结"><a href="#Linux常用命令总结" class="headerlink" title="Linux常用命令总结"></a>Linux常用命令总结</h2><ul>
-<li>ls：显示当前目录内容，后面可加路径参数表示显示指定路径内容，后面也可跟选项<ul>
-<li>-a 显示全部文件/目录，</li>
-<li>-l 以列表的形式显示文件/目录的详细信息，</li>
-<li>-h与-l搭配用来显示用户友好的数据大小单位，</li>
-<li>-i显示文件编号。</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/24/Linux/2. Linux常用命令总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">常用指令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/Linux/2. Linux常用命令总结/">展开全文 >></a>
-        </p>
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1561,14 +1571,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1581,11 +1583,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">sqlalchemy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1598,10 +1612,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码仓库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
