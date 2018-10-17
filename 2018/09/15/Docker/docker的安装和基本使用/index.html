@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
   <title>Docker的安装 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ubuntu下简便方式安装 在Ubuntu中使用源码安装Docker：进入到源码文件夹中   sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb   检查Docker CE是否安装正确   sudo docker run hello-world   第一次运行可能发生以下报错  12345">
+  <meta name="description" content="Ubuntu下简便方式安装1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中  sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb  2.检查Docker CE是否安装正确  sudo docker run hello-world">
 <meta name="keywords" content="docker,docker的安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker的安装">
 <meta property="og:url" content="https://yanguhung.github.io/2018/09/15/Docker/docker的安装和基本使用/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="Ubuntu下简便方式安装 在Ubuntu中使用源码安装Docker：进入到源码文件夹中   sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb   检查Docker CE是否安装正确   sudo docker run hello-world   第一次运行可能发生以下报错  12345">
+<meta property="og:description" content="Ubuntu下简便方式安装1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中  sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb  2.检查Docker CE是否安装正确  sudo docker run hello-world">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-17T02:01:58.578Z">
+<meta property="og:updated_time" content="2018-10-17T02:05:33.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker的安装">
-<meta name="twitter:description" content="Ubuntu下简便方式安装 在Ubuntu中使用源码安装Docker：进入到源码文件夹中   sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb   检查Docker CE是否安装正确   sudo docker run hello-world   第一次运行可能发生以下报错  12345">
+<meta name="twitter:description" content="Ubuntu下简便方式安装1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中  sudo apt-key add gpg sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb  2.检查Docker CE是否安装正确  sudo docker run hello-world">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -187,7 +187,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">919字</span>
+        <span class="post-count">939字</span>
       </span>
     </span>
 
@@ -207,42 +207,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Ubuntu下简便方式安装"><a href="#Ubuntu下简便方式安装" class="headerlink" title="Ubuntu下简便方式安装"></a>Ubuntu下简便方式安装</h3><ol>
-<li>在Ubuntu中使用源码安装Docker：进入到源码文件夹中</li>
-</ol>
+        <h3 id="Ubuntu下简便方式安装"><a href="#Ubuntu下简便方式安装" class="headerlink" title="Ubuntu下简便方式安装"></a>Ubuntu下简便方式安装</h3><p>1.在Ubuntu中使用源码安装Docker：进入到源码文件夹中</p>
 <ul>
 <li>sudo apt-key add gpg</li>
 <li>sudo dpkg -i docker-ce_17.03.2~ce-0~ubuntu-xenial_amd64.deb</li>
 </ul>
-<ol start="2">
-<li>检查Docker CE是否安装正确</li>
-</ol>
+<p>2.检查Docker CE是否安装正确</p>
 <ul>
-<li>sudo docker run hello-world</li>
+<li>sudo docker run hello-world<a id="more"></a>
+3.第一次运行可能发生以下报错</li>
 </ul>
-<ol start="3">
-<li>第一次运行可能发生以下报错</li>
-</ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> docker run hello-world</span><br><span class="line">Unable to find image 'hello-world:latest' locally</span><br><span class="line">latest: Pulling from hello-world</span><br><span class="line">535020c3e8ad: Pull complete </span><br><span class="line">af340544ed62: Pull complete </span><br><span class="line">Digest: sha256:a68868bfe696c00866942e8f5ca39e3e31b79c1e50feaee4ce5e28df2f051d5c</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker.</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line">1. The Docker client contacted the Docker daemon.</span><br><span class="line">2. The Docker daemon pulled the "hello-world" image from the Docker Hub.</span><br><span class="line">3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line">4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta">$</span> docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker Hub account:</span><br><span class="line">https://hub.docker.com</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line">https://docs.docker.com/userguide/</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>可见，Docker注册服务器从Docker Hub获取到最新的Hello World镜像，下载到了本地。可以再次运行Hello World镜像。</p>
 </blockquote>
-<ol start="4">
-<li>再次运行一次</li>
-</ol>
+<p>4.再次运行一次</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> docker run hello-world</span><br><span class="line"></span><br><span class="line">Hello from Docker.</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line">1. The Docker client contacted the Docker daemon.</span><br><span class="line">2. The Docker daemon pulled the "hello-world" image from the Docker Hub.</span><br><span class="line">3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line">4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta">$</span> docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker Hub account:</span><br><span class="line">https://hub.docker.com</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line">https://docs.docker.com/userguide/</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>为了避免每次命令都输入sudo，可以设置用户权限，注意执行后须注销重新登录</li>
-</ol>
+<p>5.为了避免每次命令都输入sudo，可以设置用户权限，注意执行后须注销重新登录</p>
 <ul>
 <li>sudo usermod -a -G docker $USER</li>
 </ul>
-<ol start="6">
-<li><p>启动与停止</p>
-<p> 安装完成Docker后，默认已经启动了docker服务，如需手动控制docker服务的启停，可执行如下命令</p>
-</li>
-</ol>
-<ul>
+<p>6.启动与停止</p>
+<pre><code>安装完成Docker后，默认已经启动了docker服务，如需手动控制docker服务的启停，可执行如下命令
+</code></pre><ul>
 <li><p>启动docker：sudo service docker start</p>
 </li>
 <li><p>停止docker：sudo service docker stop</p>
@@ -250,111 +237,77 @@
 <li><p>重启docker：sudo service docker restart</p>
 </li>
 </ul>
-<h3 id="Ubuntu-16-04-安装-Docker"><a href="#Ubuntu-16-04-安装-Docker" class="headerlink" title="Ubuntu 16.04 安装 Docker"></a>Ubuntu 16.04 安装 Docker</h3><ol>
-<li>选择国内的云服务商，这里选择阿里云为例</li>
-</ol>
+<h3 id="Ubuntu-16-04-安装-Docker"><a href="#Ubuntu-16-04-安装-Docker" class="headerlink" title="Ubuntu 16.04 安装 Docker"></a>Ubuntu 16.04 安装 Docker</h3><p>1.选择国内的云服务商，这里选择阿里云为例</p>
 <ul>
 <li>curl -sSL <a href="http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet" target="_blank" rel="noopener">http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet</a> | sh -</li>
 </ul>
-<ol start="2">
-<li>安装所需要的包</li>
-</ol>
+<p>2.安装所需要的包</p>
 <ul>
 <li>sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual</li>
 </ul>
-<ol start="3">
-<li>添加使用 HTTPS 传输的软件包以及 CA 证书</li>
-</ol>
+<p>3 添加使用 HTTPS 传输的软件包以及 CA 证书</p>
 <ul>
 <li>sudo apt-get update</li>
 <li>sudo apt-get install apt-transport-https ca-certificates</li>
 </ul>
-<ol start="4">
-<li>添加GPG密钥</li>
-</ol>
+<p>4.添加GPG密钥</p>
 <ul>
 <li>sudo apt-key adv –keyserver hkp://p80.pool.sks-keyservers.net:80 –recv-keys 58118E89F3A912897C070ADBF76221572C52609D</li>
 </ul>
-<ol start="5">
-<li>添加软件源</li>
-</ol>
+<p>5.添加软件源</p>
 <ul>
 <li>echo “deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="noopener">https://apt.dockerproject.org/repo</a> ubuntu-xenial main” | sudo tee /etc/apt/sources.list.d/docker.list</li>
 </ul>
-<ol start="6">
-<li>添加成功后更新软件包缓存</li>
-</ol>
+<p>6.添加成功后更新软件包缓存</p>
 <ul>
 <li>sudo apt-get update</li>
 </ul>
-<ol start="7">
-<li>安装docker</li>
-</ol>
+<p>7.安装docker</p>
 <ul>
 <li>sudo apt-get install docker-engine</li>
 </ul>
-<ol start="8">
-<li>启动 docker</li>
-</ol>
+<p>8.启动 docker</p>
 <ul>
 <li>sudo systemctl enable docker</li>
 <li>sudo systemctl start docker</li>
 </ul>
-<h3 id="Ubuntu-18-04-安装-Docker-ce"><a href="#Ubuntu-18-04-安装-Docker-ce" class="headerlink" title="Ubuntu 18.04 安装 Docker-ce"></a>Ubuntu 18.04 安装 Docker-ce</h3><ol>
-<li>更换国内软件源，推荐中国科技大学的源，稳定速度快（可选）</li>
-</ol>
+<h3 id="Ubuntu-18-04-安装-Docker-ce"><a href="#Ubuntu-18-04-安装-Docker-ce" class="headerlink" title="Ubuntu 18.04 安装 Docker-ce"></a>Ubuntu 18.04 安装 Docker-ce</h3><p>1.更换国内软件源，推荐中国科技大学的源，稳定速度快（可选）</p>
 <ul>
 <li>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</li>
 <li>sudo sed -i ‘s/archive.ubuntu.com/mirrors.ustc.edu.cn’ /etc/apt/sources.list</li>
 <li>sudo apt update</li>
 </ul>
-<ol start="2">
-<li>安装需要的包</li>
-</ol>
+<p>2.安装需要的包</p>
 <ul>
 <li>sudo apt install apt-transport-https ca-certificates software-properties-common curl</li>
 </ul>
-<ol start="3">
-<li>添加 GPG 密钥，并添加 Docker-ce 软件源，这里还是以中国科技大学的 Docker-ce 源为例</li>
-</ol>
+<p>3.添加 GPG 密钥，并添加 Docker-ce 软件源，这里还是以中国科技大学的 Docker-ce 源为例</p>
 <ul>
 <li>curl -fsSL <a href="https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg</a> | sudo apt-key add -sudo add-apt-repository “deb [arch=amd64] <a href="https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu</a> \$(lsb_release -cs) stable”</li>
 </ul>
-<ol start="4">
-<li>添加成功后更新软件包缓存</li>
-</ol>
+<p>4.添加成功后更新软件包缓存</p>
 <ul>
 <li>sudo apt update</li>
 </ul>
-<ol start="5">
-<li>安装 Docker-ce</li>
-</ol>
+<p>5.安装 Docker-ce</p>
 <ul>
 <li>sudo apt install docker-ce</li>
 </ul>
-<ol start="6">
-<li>设置开机自启动并启动 Docker-ce（安装成功后默认已设置并启动，可忽略）</li>
-</ol>
+<p>6.设置开机自启动并启动 Docker-ce（安装成功后默认已设置并启动，可忽略）</p>
 <ul>
 <li>sudo systemctl enable docker</li>
 <li>sudo systemctl start docker</li>
 </ul>
-<ol start="7">
-<li>测试运行</li>
-</ol>
+<p>7.测试运行</p>
 <ul>
 <li>sudo docker run hello-world</li>
 </ul>
-<ol start="8">
-<li>添加当前用户到 docker 用户组，可以不用 sudo 运行 docker（可选）</li>
-</ol>
+<p>8.添加当前用户到 docker 用户组，可以不用 sudo 运行 docker（可选）</p>
 <ul>
 <li>sudo groupadd docker</li>
 <li>sudo usermod -aG docker $USER</li>
 </ul>
-<ol start="9">
-<li>测试添加用户组（可选）</li>
-</ol>
+<p>9.测试添加用户组（可选）</p>
 <ul>
 <li>docker run hello-world</li>
 </ul>
@@ -667,11 +620,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">docker的安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,11 +652,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
+                <a href="javascript:void(0)" class="js-tag color5">docker的安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,6 +669,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jinjia2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,10 +721,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,10 +821,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">虚拟环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
             
             <div class="clearfix"></div>
