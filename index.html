@@ -900,6 +900,137 @@
 
 
   
+    <article id="post-Pyhton高级/10.python中的pickle和base64模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/Pyhton高级/10.python中的pickle和base64模块/">pickle和base64模块的使用基本使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/Pyhton高级/10.python中的pickle和base64模块/" class="archive-article-date">
+  	<time datetime="2018-06-30T14:37:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">704字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-pickle模块"><a href="#1-pickle模块" class="headerlink" title="1.pickle模块"></a>1.pickle模块</h3><blockquote>
+<p>pickle模块是python的标准模块，提供了对于python数据的序列化操作，可以将数据转换为bytes类型，其序列化速度比json模块要高。</p>
+</blockquote>
+<ul>
+<li>pickle.dumps() 将python数据序列化为bytes类型</li>
+<li>pickle.loads() 将bytes类型数据反序列化为python的数据类型</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'1'</span>: &#123;<span class="string">'count'</span>: <span class="number">10</span>, <span class="string">'selected'</span>: <span class="keyword">True</span>&#125;, <span class="string">'2'</span>: &#123;<span class="string">'count'</span>: <span class="number">20</span>, <span class="string">'selected'</span>: <span class="keyword">False</span>&#125;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = pickle.dumps(d)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line"><span class="string">b'\x80\x03&#125;q\x00(X\x01\x00\x00\x001q\x01&#125;q\x02(X\x05\x00\x00\x00countq\x03K\nX\x08\x00\x00\x00selectedq\x04\x88uX\x01\x00\x00\x002q\x05&#125;q\x06(h\x03K\x14h\x04\x89uu.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pickle.loads(s)</span><br><span class="line">&#123;<span class="string">'1'</span>: &#123;<span class="string">'count'</span>: <span class="number">10</span>, <span class="string">'selected'</span>: <span class="keyword">True</span>&#125;, <span class="string">'2'</span>: &#123;<span class="string">'count'</span>: <span class="number">20</span>, <span class="string">'selected'</span>: <span class="keyword">False</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-base64模块"><a href="#2-base64模块" class="headerlink" title="2.base64模块"></a>2.base64模块</h3><blockquote>
+<p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于2^6=64，所以每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4个可打印字符来表示。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。</p>
+</blockquote>
+<blockquote>
+<p>Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。</p>
+</blockquote>
+<p>python标准库中提供了base64模块，用来进行转换</p>
+<ul>
+<li>base64.b64encode() 将bytes类型数据进行base64编码，返回编码后的bytes类型</li>
+<li><p>base64.b64deocde() 将base64编码的bytes类型进行解码，返回解码后的bytes类型</p>
+  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> base64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line"><span class="string">b'\x80\x03&#125;q\x00(X\x01\x00\x00\x001q\x01&#125;q\x02(X\x05\x00\x00\x00countq\x03K\nX\x08\x00\x00\x00selectedq\x04\x88uX\x01\x00\x00\x002q\x05&#125;q\x06(h\x03K\x14h\x04\x89uu.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = base64.b64encode(s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="string">b'gAN9cQAoWAEAAAAxcQF9cQIoWAUAAABjb3VudHEDSwpYCAAAAHNlbGVjdGVkcQSIdVgBAAAAMnEFfXEGKGgDSxRoBIl1dS4='</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>base64.b64decode(b)</span><br><span class="line"><span class="string">b'\x80\x03&#125;q\x00(X\x01\x00\x00\x001q\x01&#125;q\x02(X\x05\x00\x00\x00countq\x03K\nX\x08\x00\x00\x00selectedq\x04\x88uX\x01\x00\x00\x002q\x05&#125;q\x06(h\x03K\x14h\x04\x89uu.'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###3. 两个模块配合使用</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pickle</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> base64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict = &#123;<span class="number">2</span>:&#123;<span class="string">'a'</span>:<span class="number">4</span>,bool:<span class="keyword">True</span>&#125;&#125;</span><br><span class="line"><span class="comment"># 1. python数据转换格式为bytes类型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dumps_dict = pickle.dumps(dict)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dumps_dict</span><br><span class="line"><span class="string">b'\x80\x03&#125;q\x00K\x02&#125;q\x01(X\x01\x00\x00\x00aq\x02K\x04cbuiltins\nbool\nq\x03\x88us.'</span></span><br><span class="line"><span class="comment"># 2. 进行base64编码</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>base64_dict = base64.b64encode(dumps_dict)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>base64_dict</span><br><span class="line"><span class="string">b'gAN9cQBLAn1xAShYAQAAAGFxAksEY2J1aWx0aW5zCmJvb2wKcQOIdXMu'</span></span><br><span class="line"><span class="comment"># 3. 解码为字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>base64_dict.decode()</span><br><span class="line"><span class="string">'gAN9cQBLAn1xAShYAQAAAGFxAksEY2J1aWx0aW5zCmJvb2wKcQOIdXMu'</span></span><br><span class="line"><span class="comment"># 4. 编码为bytes类型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>decode_dict = base64.b64decode(base64_dict)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>decode_dict</span><br><span class="line"><span class="string">b'\x80\x03&#125;q\x00K\x02&#125;q\x01(X\x01\x00\x00\x00aq\x02K\x04cbuiltins\nbool\nq\x03\x88us.'</span></span><br><span class="line"><span class="comment"># 5. 转化为pyhton数据格式</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict = pickle.loads(decode_dict)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict</span><br><span class="line">&#123;<span class="number">2</span>: &#123;<span class="string">'a'</span>: <span class="number">4</span>, &lt;<span class="class"><span class="keyword">class</span> '<span class="title">bool</span>'&gt;:</span> <span class="keyword">True</span>&#125;&#125;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pickle</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">base64</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pyhton</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编码解码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/Pyhton高级/10.python中的pickle和base64模块/">展开全文 >></a>
+        </p>
+      
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL/5. MySQL视图事物索引的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1291,130 +1422,6 @@
 
 
   
-    <article id="post-MySQL/4. 用python连接mysql数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/03/MySQL/4. 用python连接mysql数据库/">用python批量向数据库(MySQL)中导入数据</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/03/MySQL/4. 用python连接mysql数据库/" class="archive-article-date">
-  	<time datetime="2017-10-03T10:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
-</a>
-        
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">274字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>现有数十万条数据,需要向数据库中导入,内部的数据格式如下与下面的表格结构相同
-        
-          <a class="article-more-a" href="/2017/10/03/MySQL/4. 用python连接mysql数据库/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL/Python//" class="article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/03/MySQL/4. 用python连接mysql数据库/">展开全文 >></a>
-        </p>
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1565,34 +1572,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Django</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">定时任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">django-crontab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">docker的安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
              
@@ -1633,6 +1612,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前后端数据交互</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Django</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">定时任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">django-crontab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">docker的安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
@@ -1649,7 +1656,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pickle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyhton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编码解码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">常用指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1658,6 +1701,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,27 +1728,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">常用指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1710,14 +1737,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python高级</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1749,14 +1768,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据库常用命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
@@ -1774,6 +1785,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">socket套接字</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据库常用命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UDP/TCP</a>
               </li>
              
               <li class="article-tag-list-item">
