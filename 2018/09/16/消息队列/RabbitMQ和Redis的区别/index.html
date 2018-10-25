@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanguhung.github.io">
-  <title>Ubuntu下安装RabbitMQ | UH的博客</title>
+  <title>rabbitmq和redis的区别 | UH的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="按照以下步骤，命令行操作12345678# 1、添加源 echo &amp;apos;deb http://www.rabbitmq.com/debian/ testing main&amp;apos; | sudo tee /etc/apt/sources.list.d/rabbitmq.list# 2、新增公钥（不加会有警告） wget -O- https://www.rabbitmq.com/rabbitm">
-<meta name="keywords" content="RabbitMQ,消息队列">
+  <meta name="description" content="将redis发布订阅模式用做消息队列和rabbitmq的区别：1.可靠性  redis ：没有相应的机制保证消息的可靠消费，如果发布者发布一条消息，而没有对应的订阅者的话，这条消息将丢失，不会存在内存中； rabbitmq：具有消息消费确认机制，如果发布一条消息，还没有消费者消费该队列，那么这条消息将一直存放在队列中，直到有消费者消费了该条消息，以此可以保证消息的可靠消费，那么rabbitmq的消">
+<meta name="keywords" content="Redis,RabbitMQ,消息队列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu下安装RabbitMQ">
-<meta property="og:url" content="https://yanguhung.github.io/2018/09/26/RabbitMQ/在Ubuntu下的安装RabbitMQ/index.html">
+<meta property="og:title" content="rabbitmq和redis的区别">
+<meta property="og:url" content="https://yanguhung.github.io/2018/09/16/消息队列/RabbitMQ和Redis的区别/index.html">
 <meta property="og:site_name" content="UH的博客">
-<meta property="og:description" content="按照以下步骤，命令行操作12345678# 1、添加源 echo &amp;apos;deb http://www.rabbitmq.com/debian/ testing main&amp;apos; | sudo tee /etc/apt/sources.list.d/rabbitmq.list# 2、新增公钥（不加会有警告） wget -O- https://www.rabbitmq.com/rabbitm">
+<meta property="og:description" content="将redis发布订阅模式用做消息队列和rabbitmq的区别：1.可靠性  redis ：没有相应的机制保证消息的可靠消费，如果发布者发布一条消息，而没有对应的订阅者的话，这条消息将丢失，不会存在内存中； rabbitmq：具有消息消费确认机制，如果发布一条消息，还没有消费者消费该队列，那么这条消息将一直存放在队列中，直到有消费者消费了该条消息，以此可以保证消息的可靠消费，那么rabbitmq的消">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-21T13:39:53.118Z">
+<meta property="og:updated_time" content="2018-10-25T16:47:00.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu下安装RabbitMQ">
-<meta name="twitter:description" content="按照以下步骤，命令行操作12345678# 1、添加源 echo &amp;apos;deb http://www.rabbitmq.com/debian/ testing main&amp;apos; | sudo tee /etc/apt/sources.list.d/rabbitmq.list# 2、新增公钥（不加会有警告） wget -O- https://www.rabbitmq.com/rabbitm">
+<meta name="twitter:title" content="rabbitmq和redis的区别">
+<meta name="twitter:description" content="将redis发布订阅模式用做消息队列和rabbitmq的区别：1.可靠性  redis ：没有相应的机制保证消息的可靠消费，如果发布者发布一条消息，而没有对应的订阅者的话，这条消息将丢失，不会存在内存中； rabbitmq：具有消息消费确认机制，如果发布一条消息，还没有消费者消费该队列，那么这条消息将一直存放在队列中，直到有消费者消费了该条消息，以此可以保证消息的可靠消费，那么rabbitmq的消">
   
     <link rel="alternative" href="/atom.xml" title="UH的博客" type="application/atom+xml">
   
@@ -165,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-RabbitMQ/在Ubuntu下的安装RabbitMQ" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-消息队列/RabbitMQ和Redis的区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu下安装RabbitMQ
+      rabbitmq和redis的区别
     </h1>
   
 
         
-        <a href="/2018/09/26/RabbitMQ/在Ubuntu下的安装RabbitMQ/" class="archive-article-date">
-  	<time datetime="2018-09-26T14:05:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
+        <a href="/2018/09/16/消息队列/RabbitMQ和Redis的区别/" class="archive-article-date">
+  	<time datetime="2018-09-16T06:09:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
 </a>
         
         
@@ -187,7 +187,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">503字</span>
+        <span class="post-count">587字</span>
       </span>
     </span>
 
@@ -207,43 +207,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="按照以下步骤，命令行操作"><a href="#按照以下步骤，命令行操作" class="headerlink" title="按照以下步骤，命令行操作"></a>按照以下步骤，命令行操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 1、添加源 </span><br><span class="line">echo &apos;deb http://www.rabbitmq.com/debian/ testing main&apos; | sudo tee /etc/apt/sources.list.d/rabbitmq.list</span><br><span class="line"># 2、新增公钥（不加会有警告） </span><br><span class="line">wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -</span><br><span class="line"># 3、更新源 </span><br><span class="line">sudo apt-get update</span><br><span class="line">#/4、安装rabbitmq-server</span><br><span class="line">sudo apt-get install rabbitmq-server</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>5、使用命令invoke-rc.d rabbitmq-server status 查看进程状态</p>
+        <h3 id="将redis发布订阅模式用做消息队列和rabbitmq的区别："><a href="#将redis发布订阅模式用做消息队列和rabbitmq的区别：" class="headerlink" title="将redis发布订阅模式用做消息队列和rabbitmq的区别："></a>将redis发布订阅模式用做消息队列和rabbitmq的区别：</h3><p>1.可靠性</p>
 <ul>
-<li>显示以下状态，表示进程已经开启</li>
+<li>redis ：没有相应的机制保证消息的可靠消费，如果发布者发布一条消息，而没有对应的订阅者的话，这条消息将丢失，不会存在内存中；</li>
+<li>rabbitmq：具有消息消费确认机制，如果发布一条消息，还没有消费者消费该队列，那么这条消息将一直存放在队列中，直到有消费者消费了该条消息，以此可以保证消息的可靠消费，那么rabbitmq的消息是如何存储的呢？（后续更新）；<a id="more"></a>
+2.实时性</li>
+<li>redis:实时性高，redis作为高效的缓存服务器，所有数据都存在在服务器中，所以它具有更高的实时性</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">xq@xq-VPCEG17YC:/etc/apt/sources.list.d$ invoke-rc.d rabbitmq-server status </span><br><span class="line">● rabbitmq-server.service - RabbitMQ broker</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/rabbitmq-server.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 四 2017-05-25 20:42:25 CST; 5min ago</span><br><span class="line"> Main PID: 4865 (beam.smp)</span><br><span class="line">   Status: &quot;Initialized&quot;</span><br><span class="line">   CGroup: /system.slice/rabbitmq-server.service</span><br><span class="line">           ├─4865 /usr/lib/erlang/erts-7.3/bin/beam.smp -W w -A 64 -P 1048576 -t 5000000 -stbt db -zdbbl 32000 -K true -- -root /usr/lib/erlang</span><br><span class="line">           ├─4942 /usr/lib/erlang/erts-7.3/bin/epmd -daemon</span><br><span class="line">           ├─5074 inet_gethost 4</span><br><span class="line">           └─5075 inet_gethost 4</span><br><span class="line"></span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:               RabbitMQ 3.6.10. Copyright (C) 2007-2017 Pivotal Software, Inc.</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:   ##  ##      Licensed under the MPL.  See http://www.rabbitmq.com/</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:   ##  ##</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:   ##########  Logs: /var/log/rabbitmq/rabbit@xq-VPCEG17YC.log</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:   ######  ##        /var/log/rabbitmq/rabbit@xq-VPCEG17YC-sasl.log</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:   ##########</span><br><span class="line">5月 25 20:42:21 xq-VPCEG17YC rabbitmq-server[4865]:               Starting broker...</span><br><span class="line">5月 25 20:42:25 xq-VPCEG17YC rabbitmq-server[4865]: systemd unit for activation check: &quot;rabbitmq-server.service&quot;</span><br><span class="line">5月 25 20:42:25 xq-VPCEG17YC systemd[1]: Started RabbitMQ broker.</span><br><span class="line">5月 25 20:42:25 xq-VPCEG17YC rabbitmq-server[4865]:  completed with 0 plugins.</span><br></pre></td></tr></table></figure>
-<h3 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h3><p>1.打开管理页面 </p>
+<p>3.消费者负载均衡：</p>
 <ul>
-<li>sudo rabbitmq-plugins enable rabbitmq_management</li>
+<li>rabbitmq队列可以被多个消费者同时监控消费，但是每一条消息只能被消费一次，由于rabbitmq的消费确认机制，因此它能够根据消费者的消费能力而调整它的负载；</li>
+<li>redis发布订阅模式，一个队列可以被多个消费者同时订阅，当有消息到达时，会将该消息依次发送给每个订阅者；</li>
 </ul>
-<p>2.查看安装的插件 </p>
+<p>4.持久性</p>
 <ul>
-<li>sudo rabbitmqctl list_users</li>
+<li>redis：redis的持久化是针对于整个redis缓存的内容，它有RDB和AOF两种持久化方式（redis持久化方式，后续更新），可以将整个redis实例持久化到磁盘，以此来做数据备份，防止异常情况下导致数据丢失。</li>
+<li>rabbitmq：队列，消息都可以选择性持久化，持久化粒度更小，更灵活；</li>
 </ul>
-<p>3.查看用户 </p>
+<p>5.队列监控</p>
 <ul>
-<li>sudo rabbitmqctl list_users</li>
+<li>rabbitmq实现了后台监控平台，可以在该平台上看到所有创建的队列的详细情况，良好的后台管理平台可以方面我们更好的使用；</li>
+<li>redis没有所谓的监控平台。</li>
 </ul>
-<p>4.新增管理员用户 </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p>redis：       轻量级，低延迟，高并发，低可靠性；</p>
+</li>
+<li><p>rabbitmq：重量级，高可靠，异步，不保证实时；</p>
 <blockquote>
-<p>创建用户名为admin，密码为admin</p>
-<ul>
-<li>sudo rabbitmqctl add_user admin admin<br>把该用户设置为管理员角色</li>
-<li>sudo rabbitmqctl set_user_tags admin administrator<br>设置权限</li>
-<li>sudo rabbitmqctl  set_permissions  -p  ‘/‘  admin ‘.’ ‘.’ ‘.’<br>重启rabbitmq服务</li>
-<li>sudo service rabbitmq-server restart</li>
-</ul>
+<p>rabbitmq是一个专门的AMQP协议队列，他的优势就在于提供可靠的队列服务，并且可做到异步，而redis主要是用于缓存的，redis的发布订阅模块，可用于实现及时性，且可靠性低的功能。</p>
 </blockquote>
-<p>用户角色有以下几种</p>
-<ul>
-<li>management</li>
-<li>policymaker</li>
-<li>monitoring</li>
-<li>administrator</li>
+</li>
 </ul>
-<p>用刚设置的账户登录管理页面<br><a href="http://127.0.0.1:15672" target="_blank" rel="noopener">http://127.0.0.1:15672</a></p>
 
       
 
@@ -283,6 +277,10 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RabbitMQ</a>
         		</li>
       		 
@@ -294,17 +292,6 @@
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/RabbitMQ//" class="article-tag-list-link color4">RabbitMQ</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
 
 
@@ -356,7 +343,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2018/09/26/RabbitMQ/在Ubuntu下的安装RabbitMQ/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanguhung.github.io/2018/09/16/消息队列/RabbitMQ和Redis的区别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,18 +357,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/29/RabbitMQ/使用RabbitMq实现广播/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/21/Docker/docker的基本使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          RabbitMQ实现广播发送
+          Docker的基本使用
         
       </div>
     </a>
   
   
-    <a href="/2018/09/21/Docker/docker的基本使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker的基本使用</div>
+    <a href="/2018/09/15/Docker/docker的安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker的安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
